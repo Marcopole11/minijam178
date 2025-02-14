@@ -1,7 +1,7 @@
 extends Node2D
 class_name NeedComponent
 
-@export var filler:Node2D
+@export var interaction_area:Area2D
 
 @export var max_need:float = 15.0
 var need:float
