@@ -4,8 +4,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="PERSONAJE" parent="." instance=ExtResource("1_4w6mk")]
-SPEED = 300.0
+[node name="Player" parent="." instance=ExtResource("1_4w6mk")]
 
 [node name="Polygon2D" type="StaticBody2D" parent="."]
 position = Vector2(10, 13)
