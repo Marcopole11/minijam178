@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://o4yulb10i6ks"]
+
+[ext_resource type="Script" path="res://personaje.gd" id="1_4r6ul"]
+[ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="2_u7bw5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5puha"]
+size = Vector2(64, 64)
+
+[node name="PERSONAJE" type="CharacterBody2D"]
+position = Vector2(385, 274)
+motion_mode = 1
+script = ExtResource("1_4r6ul")
+SPEED = 700.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_u7bw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5puha")
+debug_color = Color(0.768831, 0.41223, 0.460352, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.1, 1.1)
