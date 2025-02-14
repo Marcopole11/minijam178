@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5puha"]
 size = Vector2(64, 64)
 
-[node name="PERSONAJE" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(385, 274)
 motion_mode = 1
 script = ExtResource("1_g4ryt")
