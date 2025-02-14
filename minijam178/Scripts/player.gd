@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED = 300.0
+@onready var AtkAnims = $"AtkAnims"
 
 
 func _physics_process(_delta):	
@@ -12,3 +13,6 @@ func _physics_process(_delta):
 	velocity = direction * SPEED
 	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("punch"):
+		AtkAnims.play("punch_down")
