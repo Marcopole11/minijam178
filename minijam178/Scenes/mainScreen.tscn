@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://fj7dhitklg1n"]
+
+[ext_resource type="Script" path="res://Scenes/main_screen.gd" id="1_vhxit"]
+[ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="2_u0ktb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_36tp5"]
+font_size = 84
+font_color = Color(0.929412, 0.027451, 0.658824, 0.564706)
+outline_size = 12
+outline_color = Color(0.584314, 1, 1, 1)
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vhxit")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 190.0
+grow_horizontal = 2
+
+[node name="GameName" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "ISAAC GIGANTE ENANO"
+label_settings = SubResource("LabelSettings_36tp5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467014
+anchor_top = 0.462963
+anchor_right = 0.957465
+anchor_bottom = 0.851852
+theme_override_constants/separation = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="BTN_Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 65
+text = "PLAY
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 130
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="BTN_Options" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "OPTIONS"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="BTN_Exit" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 43
+text = "EXIT"
+
+[node name="Fotito" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0694444
+anchor_top = 0.319444
+anchor_right = 0.373264
+anchor_bottom = 0.864198
+texture = ExtResource("2_u0ktb")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/BTN_Play" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/BTN_Options" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/BTN_Exit" to="." method="_on_btn_exit_pressed"]

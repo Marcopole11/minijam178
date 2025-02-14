@@ -14,5 +14,3 @@ polygon = PackedVector2Array(3, 96, 582, 97, 1141, 97, 1141, 574, 129, 576, 130,
 
 [node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
 polygon = PackedVector2Array(3, 96, 4, 125, 1115, 123, 1112, 546, 130, 545, 129, 576, 1140, 575, 1139, 95)
-
-[node name="PERSONAJE" parent="." instance=ExtResource("1_4w6mk")]
