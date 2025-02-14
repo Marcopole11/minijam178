@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfdeyk84wht86"]
+[gd_scene load_steps=6 format=3 uid="uid://dfdeyk84wht86"]
 
 [ext_resource type="PackedScene" uid="uid://o4yulb10i6ks" path="res://Scenes/player.tscn" id="1_4w6mk"]
 [ext_resource type="PackedScene" uid="uid://buraukd85vvlu" path="res://Scenes/heart.tscn" id="2_71hwq"]
 [ext_resource type="PackedScene" uid="uid://i42moxoncfea" path="res://Scenes/pizzaguy.tscn" id="3_wydr0"]
 [ext_resource type="PackedScene" uid="uid://byc6xlkqcithr" path="res://Scenes/phone.tscn" id="4_6xl0r"]
+[ext_resource type="PackedScene" uid="uid://wnmav3mgfhd7" path="res://Scenes/stomach.tscn" id="4_jkpjo"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,6 +25,9 @@ position = Vector2(714, 318)
 [node name="Pizzaguy" parent="." node_paths=PackedStringArray("phone") instance=ExtResource("3_wydr0")]
 position = Vector2(0, 214)
 phone = NodePath("../phone")
+
+[node name="Stomach" parent="." instance=ExtResource("4_jkpjo")]
+position = Vector2(359, 758)
 
 [node name="phone" parent="." instance=ExtResource("4_6xl0r")]
 position = Vector2(394, 134)

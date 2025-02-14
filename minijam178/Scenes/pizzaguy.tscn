@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://i42moxoncfea"]
 
 [ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="1_m3da7"]
-[ext_resource type="Script" path="res://Scripts/food_processor.gd" id="1_v7kgq"]
+[ext_resource type="Script" path="res://Scripts/pizzaguy.gd" id="1_v7kgq"]
 [ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="2_ubgcb"]
 [ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="3_op8x0"]
 

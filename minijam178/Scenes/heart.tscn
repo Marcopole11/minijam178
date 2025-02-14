@@ -48,3 +48,10 @@ position = Vector2(2, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor_Area"]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_apqny")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -100.0
+offset_right = 57.0
+offset_bottom = -77.0
+text = "Corason latino"
