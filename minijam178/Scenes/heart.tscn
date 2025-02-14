@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://buraukd85vvlu"]
 
-[ext_resource type="Script" path="res://Scenes/heart.gd" id="1_7mgdm"]
+[ext_resource type="Script" path="res://Scripts/heart.gd" id="1_7mgdm"]
 [ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="2_dhlfi"]
 [ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="3_pi4lc"]
 [ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="4_vhjkl"]
@@ -8,23 +8,39 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apqny"]
 size = Vector2(128, 128)
 
-[node name="Heart" type="StaticBody2D"]
+[node name="Heart" type="StaticBody2D" node_paths=PackedStringArray("interactor_Area", "need_bar", "rage_bar")]
 position = Vector2(0, -1)
 script = ExtResource("1_7mgdm")
+interactor_Area = NodePath("Interactor_Area")
+need_decrease = 0.1
+need_bar = NodePath("need_bar")
+rage_increase = 0.1
+rage_bar = NodePath("rage_bar")
 
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("2_dhlfi")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 77.0
+[node name="need_bar" type="TextureProgressBar" parent="."]
+offset_left = 68.0
 offset_top = -91.0
-offset_right = 241.0
+offset_right = 232.0
 offset_bottom = 1373.0
 scale = Vector2(0.0764532, 0.116335)
 value = 30.0
 fill_mode = 3
 texture_under = ExtResource("3_pi4lc")
 texture_progress = ExtResource("4_vhjkl")
+
+[node name="rage_bar" type="TextureProgressBar" parent="."]
+offset_left = 90.0
+offset_top = -91.0
+offset_right = 254.0
+offset_bottom = 1373.0
+scale = Vector2(0.0764532, 0.116335)
+value = 30.0
+fill_mode = 3
+texture_under = ExtResource("3_pi4lc")
+texture_progress = ExtResource("4_vhjkl")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_dhlfi")
 
 [node name="Interactor_Area" type="Area2D" parent="."]
 position = Vector2(2, 0)
