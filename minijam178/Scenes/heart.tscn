@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://buraukd85vvlu"]
+[gd_scene load_steps=6 format=3 uid="uid://buraukd85vvlu"]
 
-[ext_resource type="Script" path="res://Scripts/needcomponent.gd" id="1_aimfe"]
+[ext_resource type="Script" path="res://Scenes/heart.gd" id="1_7mgdm"]
 [ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="2_dhlfi"]
 [ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="3_pi4lc"]
 [ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="4_vhjkl"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apqny"]
+size = Vector2(128, 128)
+
 [node name="Heart" type="StaticBody2D"]
 position = Vector2(0, -1)
-
-[node name="Needcomponent" type="Node2D" parent="."]
-script = ExtResource("1_aimfe")
+script = ExtResource("1_7mgdm")
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("2_dhlfi")
@@ -25,5 +26,9 @@ fill_mode = 3
 texture_under = ExtResource("3_pi4lc")
 texture_progress = ExtResource("4_vhjkl")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Interactor_Area" type="Area2D" parent="."]
 position = Vector2(2, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor_Area"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_apqny")
