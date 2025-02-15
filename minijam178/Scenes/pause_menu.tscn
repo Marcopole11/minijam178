@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj1f2m5qhc71g"]
+
+[ext_resource type="Script" path="res://Scenes/master_sound.gd" id="1_4tv6d"]
+
+[sub_resource type="GDScript" id="GDScript_t4wlr"]
+script/source = "extends CanvasLayer
+
+func _on_button_quit_pressed() -> void:
+	get_tree().quit()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"ui_cancel\"):
+		visible = !visible
+		get_tree().paused = !get_tree().paused
+"
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+follow_viewport_enabled = true
+script = SubResource("GDScript_t4wlr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Master sound" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master sound
+"
+
+[node name="slider_vol_master" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_4tv6d")
+bus_name = "Master"
+
+[node name="Sound" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master sound
+"
+
+[node name="slider_vol_master2" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_4tv6d")
+bus_name = "Sound"
+
+[node name="Music" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master sound
+"
+
+[node name="slider_vol_master3" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.05
+script = ExtResource("1_4tv6d")
+bus_name = "Music"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="button_quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+text = "Quit to desktop
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/button_quit" to="." method="_on_button_quit_pressed"]
