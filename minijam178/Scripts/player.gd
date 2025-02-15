@@ -13,41 +13,51 @@ extends CharacterBody2D
 
 
 var has_pizza:bool = false
-var attacking:bool = false
+@export var attacking:bool = false
+var orientation:Vector2 = Vector2.DOWN
 
 
 func _ready() -> void:
-	pizzaguy.pizza_delivered.connect(_on_pizza_delivered)
+	if pizzaguy:
+		pizzaguy.pizza_delivered.connect(_on_pizza_delivered)
 
 
-func _physics_process(_delta):	
+func _physics_process(_delta):
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
 	
 	if(direction.length_squared() > 1):
 		direction = direction.normalized()
 
+	if not direction.is_zero_approx() and not attacking:
+		if abs(direction.x) > abs(direction.y):
+			orientation = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
+		else:
+			orientation = Vector2.DOWN if direction.y > 0 else Vector2.UP
+			
 	velocity = direction * SPEED
 	move_and_slide()
 	
-	if velocity != Vector2.ZERO and !attacking:
-		AnimTree.set("parameters/Atk/blend_position", velocity)
-		AnimTree.set("parameters/Idel/blend_position", velocity)
-		AnimTree.set("parameters/Walk/blend_position", velocity)
-		AnimTree.get("parameters/playback").travel("Walk")
-	else:
-		AnimTree.get("parameters/playback").travel("Idle")
-	
 	if Input.is_action_just_pressed("punch") and !attacking:
-		AnimTree.get("parameters/playback").start("Atk")
+		AnimTree.set("parameters/Attack/blend_position", orientation)
+		AnimTree.set("parameters/conditions/attack", true)
+		
+	if velocity != Vector2.ZERO:
+		AnimTree.set("parameters/Idle/blend_position", orientation)
+		AnimTree.set("parameters/Walk/blend_position", orientation)
+		AnimTree.set("parameters/conditions/moving", true)
+	else:
+		AnimTree.set("parameters/conditions/moving", false)
+	
 
 func startAttack():
-	attacking = true
 	punch.set_collision_layer_value(1,true)
 	punch.set_collision_mask_value(1,true)
+	
 func endAttack():
-	attacking = false
 	punch.set_collision_layer_value(1,false)
 	punch.set_collision_mask_value(1,false)
+	AnimTree.set("parameters/conditions/attack", false)
+	
 func _on_pizza_delivered():
 	pizzasprite.visible = true
 	
