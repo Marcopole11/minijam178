@@ -27,8 +27,7 @@ func _process(delta: float) -> void:
 	need_bar.value = need
 	rage_bar.value = rage
 	needHandle()
-	
-	
+		
 func interact():
 	need += need_increase
 	
@@ -40,9 +39,7 @@ func needHandle():
 	elif rage < max_rage:
 		rage += rage_change
 
-
-
-func _on_interactor_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and player.pizzasprite.visible and need < max_rage:
+func _on_interactor_area_area_entered(area):
+	if area.is_in_group("punch") and player.pizzasprite.visible and need < max_rage:
 		need = need_increase
 		player.pizzasprite.visible = false

@@ -5,10 +5,9 @@ extends Node2D
 
 signal calling_pizza
 
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		calling_pizza.emit()
-
 func play_sound():
 	call_sound.play()
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("punch"):
+		calling_pizza.emit()

@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://wnmav3mgfhd7"]
 
 [ext_resource type="Script" path="res://Scripts/stomach.gd" id="1_q665v"]
-[ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="2_amb86"]
+[ext_resource type="Texture2D" uid="uid://okqha2vjdk15" path="res://textures/stations/Stomack.png" id="2_d2wk2"]
 [ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="3_k8c0y"]
 [ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="4_em31p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1i5td"]
-size = Vector2(128, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mso00"]
+size = Vector2(66, 36)
 
 [node name="Stomach" type="StaticBody2D" node_paths=PackedStringArray("interactor_Area", "need_bar", "rage_bar")]
 script = ExtResource("1_q665v")
@@ -17,13 +17,13 @@ need_bar = NodePath("need_bar")
 rage_bar = NodePath("rage_bar")
 
 [node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("2_amb86")
+texture = ExtResource("2_d2wk2")
 
 [node name="need_bar" type="TextureProgressBar" parent="."]
-offset_left = 68.0
-offset_top = -91.0
-offset_right = 232.0
-offset_bottom = 1373.0
+offset_left = 129.0
+offset_top = -137.0
+offset_right = 293.0
+offset_bottom = 1327.0
 scale = Vector2(0.0764532, 0.116335)
 value = 30.0
 fill_mode = 3
@@ -31,10 +31,10 @@ texture_under = ExtResource("3_k8c0y")
 texture_progress = ExtResource("4_em31p")
 
 [node name="rage_bar" type="TextureProgressBar" parent="."]
-offset_left = 90.0
-offset_top = -91.0
-offset_right = 254.0
-offset_bottom = 1373.0
+offset_left = 147.0
+offset_top = -137.0
+offset_right = 311.0
+offset_bottom = 1327.0
 scale = Vector2(0.0764532, 0.116335)
 value = 30.0
 fill_mode = 3
@@ -45,14 +45,10 @@ texture_progress = ExtResource("4_em31p")
 position = Vector2(2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor_Area"]
-position = Vector2(-2, 0)
-shape = SubResource("RectangleShape2D_1i5td")
+position = Vector2(-171, -69)
+shape = SubResource("RectangleShape2D_mso00")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -46.0
-offset_top = -94.0
-offset_right = 43.0
-offset_bottom = -71.0
-text = "ESTOMAGO"
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-197, -76, -197, -68, -199.82, -62.1864, -198, -58, -204, -59, -221, -50, -227, -40, -230, -29, -219, -12, -207, -5, -184, -5, -171, -10, -187, -28, -181, -33, -162, -32, -138, -22, -117, -7, -97, -5, -78, -15, -63, -31, -54, -30, -44, -28, -27, -17, 4, 13, 3, 20, -20, 34, -36, 55, -36, 67, -19, 84, 11, 85, 19, 85, 48, 95, 71, 96, 86, 93, 104, 96, 119, 97, 135, 89, 184, 103, 208, 104, 219, 100, 173, 69, 142, 56, 125, 54, 114, 60, 89, 79, 61, 60, 39, 50, 24, 49, 54, 20, 76.822, 14.7694, 104, -2, 115, -17, 114, -48, 99.2812, -67.7955, 77, -84, 52, -94, 48, -102, 35, -103, 0, -108, -36, -105, -87, -96, -112, -87, -121, -74, -124, -51, -142, -58, -143, -69, -169, -80)
 
-[connection signal="body_entered" from="Interactor_Area" to="." method="_on_interactor_area_body_entered"]
+[connection signal="area_entered" from="Interactor_Area" to="." method="_on_interactor_area_area_entered"]
