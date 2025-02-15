@@ -12,7 +12,9 @@ const showerthoughts:Array[String] = [
 	"Imagine if our hiccups were as loud as sneezes.",
 	"Hmmm pizza...",
 	"Mirrors don’t break, they just become smaller mirrors.",
-	"The moment you were born, you were also the youngest person on Earth."
+	"The moment you were born, you were also the youngest person on Earth.",
+	"California girls were unforgetable... uoooo uoooo",
+	"Why is this guy is so angry??"
 ]
 
 

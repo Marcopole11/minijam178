@@ -1,10 +1,10 @@
 extends Node2D
 
+@onready var question: Label = $Container/MarginContainer/Question
+@onready var answer_1: Label = $Container/Answer1/MarginContainer2/MarginContainer/Label
+@onready var answer_2: Label = $Container/Answer2/MarginContainer2/MarginContainer/Label
+@onready var answer_3: Label = $Container/Answer3/MarginContainer2/MarginContainer/Label
 
-@onready var question: Label = $Container/Question
-@onready var answer_1: Label = $Container/Answer1/Answer1
-@onready var answer_2: Label = $Container/Answer2/Answer2
-@onready var answer_3: Label = $Container/Answer3/Answer3
 
 var operators = ["+", "-", "*"]
 var valuerandomness: int = 20
