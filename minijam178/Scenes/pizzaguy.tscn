@@ -1,26 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://i42moxoncfea"]
+[gd_scene load_steps=5 format=3 uid="uid://i42moxoncfea"]
 
-[ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="1_m3da7"]
 [ext_resource type="Script" path="res://Scripts/pizzaguy.gd" id="1_v7kgq"]
+[ext_resource type="Texture2D" uid="uid://d0qtkrnan208c" path="res://textures/props/PizzaMan.png" id="2_imie2"]
 [ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="2_ubgcb"]
 [ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="3_op8x0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kqqdw"]
-radius = 124.326
-
-[node name="Pizzaguy" type="StaticBody2D" node_paths=PackedStringArray("timeleft_bar", "pizzaGuy_sprite")]
+[node name="Pizzaguy" type="StaticBody2D" node_paths=PackedStringArray("timeleft_bar", "pizzaGuy_sprite", "colision")]
 script = ExtResource("1_v7kgq")
 timeleft_bar = NodePath("timeleft_bar")
 pizzaGuy_sprite = NodePath("Icon")
+colision = NodePath("CollisionPolygon")
 
 [node name="Icon" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("1_m3da7")
+texture = ExtResource("2_imie2")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_kqqdw")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(-3.0876, 6.06595)
+polygon = PackedVector2Array(0.647753, -8.7373, 2.59101, -6.9239, 2.59101, -5.76991, 6.15366, -5.60506, 6.15366, -4.94564, 4.85815, -4.78079, 6.47753, -3.46195, 6.80141, -2.80253, 6.47753, -2.14311, 4.85815, -1.15398, 4.53427, -0.989128, 3.56264, -0.824274, 1.29551, 0.659419, 2.26714, 1.15398, 2.59101, 1.97826, 4.2104, 1.48369, 6.47753, 1.64855, 8.42079, 0.989128, 10.6879, 0.824274, 12.6312, 1.64855, 12.6312, 1.97826, 14.8983, 1.97826, 15.2222, 2.14311, 14.8983, 2.63768, 14.8983, 4.45108, 10.6879, 5.93477, 10.0402, 5.60506, 4.85815, 5.27535, 1.29551, 5.93477, 1.61938, 7.41846, 3.88652, 8.57244, 0.323877, 8.7373, 0.647753, 9.23186, -8.42079, 8.90215, -9.06855, 8.57244, -9.06855, 5.76991, -10.6879, 5.60506, -11.6596, 3.6268, -11.3357, 1.8134, -10.3641, 0.494564, -9.7163, 0.329709, -12.6312, -0.824274, -13.9267, -2.14311, -13.9267, -3.29709, -11.9834, -4.28622, -14.2506, -5.44021, -12.6312, -5.76991, -9.7163, -6.09962, -0.97163, -8.7373)
 
 [node name="pizzaTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -36,6 +35,11 @@ value = 30.0
 fill_mode = 3
 texture_under = ExtResource("2_ubgcb")
 texture_progress = ExtResource("3_op8x0")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+scale = Vector2(-3.0876, 6.06595)
+polygon = PackedVector2Array(0.647753, -8.7373, 2.59101, -6.9239, 2.59101, -5.76991, 6.15366, -5.60506, 6.15366, -4.94564, 4.85815, -4.78079, 6.47753, -3.46195, 6.80141, -2.80253, 6.47753, -2.14311, 4.85815, -1.15398, 4.53427, -0.989128, 3.56264, -0.824274, 1.29551, 0.659419, 2.26714, 1.15398, 2.59101, 1.97826, 4.2104, 1.48369, 6.47753, 1.64855, 8.42079, 0.989128, 10.6879, 0.824274, 12.6312, 1.64855, 12.6312, 1.97826, 14.8983, 1.97826, 15.2222, 2.14311, 14.8983, 2.63768, 14.8983, 4.45108, 10.6879, 5.93477, 10.0402, 5.60506, 4.85815, 5.27535, 1.29551, 5.93477, 1.61938, 7.41846, 3.88652, 8.57244, 0.323877, 8.7373, 0.647753, 9.23186, -8.42079, 8.90215, -9.06855, 8.57244, -9.06855, 5.76991, -10.6879, 5.60506, -11.6596, 3.6268, -11.3357, 1.8134, -10.3641, 0.494564, -9.7163, 0.329709, -12.6312, -0.824274, -13.9267, -2.14311, -13.9267, -3.29709, -11.9834, -4.28622, -14.2506, -5.44021, -12.6312, -5.76991, -9.7163, -6.09962, -0.97163, -8.7373)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="pizzaTimer" to="." method="_on_timer_timeout"]

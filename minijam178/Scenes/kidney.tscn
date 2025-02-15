@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://Scripts/kidney.gd" id="1_ldw8l"]
 [ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="2_vltgy"]
 [ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="3_g2coj"]
-[ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="4_yxs6v"]
+[ext_resource type="Texture2D" uid="uid://colbw3ktj6mim" path="res://textures/stations/Kidney.png" id="4_5c65c"]
 
 [node name="Kidney" type="StaticBody2D"]
 script = ExtResource("1_ldw8l")
 
 [node name="rage_bar" type="TextureProgressBar" parent="."]
-offset_left = 90.0
-offset_top = -91.0
-offset_right = 254.0
-offset_bottom = 1373.0
+offset_left = 372.0
+offset_top = -165.0
+offset_right = 536.0
+offset_bottom = 1299.0
 scale = Vector2(0.0764532, 0.116335)
 value = 30.0
 fill_mode = 3
@@ -20,20 +20,19 @@ texture_under = ExtResource("2_vltgy")
 texture_progress = ExtResource("3_g2coj")
 
 [node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("4_yxs6v")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -125.0
-offset_top = -156.0
-offset_right = 123.0
-offset_bottom = -107.0
-text = "Riñon
-Sin tilde, no me gustan las tildes"
+scale = Vector2(2, 2)
+texture = ExtResource("4_5c65c")
 
 [node name="Spawncd" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
 [node name="Spawner" type="Node2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-320, -13, -155, -11, -119, 30, -103, 50, -68, 54, 49, 88, 78, 54, 149, 45, 201, 50, 258, 85, 284, 128, 249, 203, 156, 253, 31, 272, -64, 264, -175, 217, -219, 183, -237, 148, -310, 93, -365, -1)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-257, -173, -205, -139, -187, -123, -143, -119, -115, -89, -50, -78, -13, -93, 9, -119, 133, -94, 154, -49, 193, -29, 264, -32, 302, -54, 332, -99, 326, -137, 293, -189, 246, -228, 185, -253, 122, -273, 66, -278, 24, -278, -22, -272, -108, -245, -140, -246, -175, -232, -207, -223)
 
 [connection signal="timeout" from="Spawncd" to="." method="_on_spawncd_timeout"]
