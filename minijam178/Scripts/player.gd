@@ -30,10 +30,10 @@ func _physics_process(_delta):
 		direction = direction.normalized()
 
 	if not direction.is_zero_approx() and not attacking:
-		if abs(direction.x) > abs(direction.y):
-			orientation = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
-		else:
+		if abs(direction.x) < abs(direction.y):
 			orientation = Vector2.DOWN if direction.y > 0 else Vector2.UP
+		else:
+			orientation = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
 	
 	if attacking:
 		direction *= 0 
