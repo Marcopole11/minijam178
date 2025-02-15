@@ -15,7 +15,7 @@ texture = ExtResource("2_3drms")
 wait_time = 9.0
 autostart = true
 
-[node name="thoughtSpawner" type="Node2D" parent="."]
+[node name="QuestionSpawner" type="Node2D" parent="."]
 position = Vector2(-173, -195)
 
 [node name="rage_bar" type="TextureProgressBar" parent="."]
@@ -32,4 +32,12 @@ texture_progress = ExtResource("4_m44on")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-234, -74, -243, -64, -245, -52, -257, -35, -259, -20, -256, -12, -265, -2, -264, 38, -271, 99, -253, 115, -238, 115, -235, 125, -219, 134, -183, 138, -152, 125, -110, 119, -93, 108, -61, 114, -44, 111, -34, 103, -20, 86, -19, 78, -11, 71, 17, 76, 50, 76, 71, 69, 91, 59, 103, 41, 108, 2, 141, 10, 171, 39, 201, 50, 228, 43, 254, 30, 269, 20, 244, 7, 229, 7, 199, 11, 174, -7, 139, -34, 90, -40, 47, -54)
 
+[node name="Nextthought" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="ThoughtSpawner" type="Node2D" parent="."]
+position = Vector2(0, 2)
+
 [connection signal="timeout" from="brainTimer" to="." method="_on_brain_timer_timeout"]
+[connection signal="timeout" from="Nextthought" to="." method="_on_nextthought_timeout"]
