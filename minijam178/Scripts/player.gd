@@ -18,7 +18,8 @@ var attacking:bool = false
 
 func _ready() -> void:
 	pizzaguy.pizza_delivered.connect(_on_pizza_delivered)
-
+	punch.set_collision_layer_value(1,false)
+	punch.set_collision_mask_value(1,false)
 
 func _physics_process(_delta):	
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")

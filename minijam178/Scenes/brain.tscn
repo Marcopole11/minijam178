@@ -15,7 +15,7 @@ texture = ExtResource("2_hi534")
 wait_time = 9.0
 autostart = true
 
-[node name="thoughtSpawner" type="Node2D" parent="."]
+[node name="QuestionSpawner" type="Node2D" parent="."]
 position = Vector2(0, -152)
 
 [node name="rage_bar" type="TextureProgressBar" parent="."]
@@ -29,4 +29,12 @@ fill_mode = 3
 texture_under = ExtResource("3_rabxi")
 texture_progress = ExtResource("4_m44on")
 
+[node name="Nextthought" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="ThoughtSpawner" type="Node2D" parent="."]
+position = Vector2(0, 2)
+
 [connection signal="timeout" from="brainTimer" to="." method="_on_brain_timer_timeout"]
+[connection signal="timeout" from="Nextthought" to="." method="_on_nextthought_timeout"]

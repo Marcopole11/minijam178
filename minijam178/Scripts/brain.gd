@@ -1,24 +1,23 @@
 extends StaticBody2D
 @onready var brain_timer: Timer = $brainTimer
-@onready var thought_spawner: Node2D = $thoughtSpawner
+@onready var question_spawner: Node2D = $QuestionSpawner
 @onready var rage_bar: TextureProgressBar = $rage_bar
+@onready var thought_spawner: Node2D = $ThoughtSpawner
 
 
-const BRAINTHOUGHTS = preload("res://Scenes/brainthoughts.tscn")
-
-
-
+const QUESTIONTHOUGHTS = preload("res://Scenes/brainthoughts.tscn")
+const GOOFYTHOUGHTS = preload("res://Scenes/goofythoughts.tscn")
 @export_group("rage") #all var related to the rage of the monster
 @export var max_rage:float = 100
 @export var rage_change:float = 1
 @export var rage:float = 0
 
-
+var spawnrange:int = 100
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,12 +30,20 @@ func _process(delta: float) -> void:
 		rage -= rage_change
 
 func spawnquestion():
-	var question = BRAINTHOUGHTS.instantiate()
+	var question = QUESTIONTHOUGHTS.instantiate()
 	question.position = Vector2(0,0)
-	thought_spawner.add_child(question)
-
+	question_spawner.add_child(question)
+func spawnthoughts():
+	var thought = GOOFYTHOUGHTS.instantiate()
+	thought.position = thought_spawner.position + Vector2(randi_range(-spawnrange,spawnrange),randi_range(-spawnrange,spawnrange))
+	thought_spawner.add_child(thought)
 
 func _on_brain_timer_timeout() -> void:
-	if thought_spawner.get_child_count() <= 0:
+	if question_spawner.get_child_count() <= 0:
 		spawnquestion()
 		print("question spawned")
+
+
+func _on_nextthought_timeout() -> void:
+	if question_spawner.get_child_count() <= 1:
+		spawnthoughts()
