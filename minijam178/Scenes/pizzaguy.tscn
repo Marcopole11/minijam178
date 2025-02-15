@@ -14,6 +14,7 @@ timeleft_bar = NodePath("timeleft_bar")
 pizzaGuy_sprite = NodePath("Icon")
 
 [node name="Icon" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_m3da7")
 
 [node name="Area2D" type="Area2D" parent="."]

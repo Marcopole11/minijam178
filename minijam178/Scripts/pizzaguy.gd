@@ -7,6 +7,7 @@ extends StaticBody2D
 @onready var pizzaTimer: Timer = $pizzaTimer
 
 signal phone_sound
+signal pizza_delivered
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +23,9 @@ func _on_calling_pizza():
 		phone_sound.emit()
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	pizzaGuy_sprite.hide()
-	
+	if body.is_in_group("player") and pizzaGuy_sprite.visible :
+		pizzaGuy_sprite.hide()
+		pizza_delivered.emit()
 func _on_timer_timeout() -> void:
 	pizzaGuy_sprite.show()
+	

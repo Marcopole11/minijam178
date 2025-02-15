@@ -1,10 +1,23 @@
 extends CharacterBody2D
 
-@export var SPEED = 300.0
-@onready var AtkAnims = $"AtkAnims"
-@onready var AnimTree = $"AnimTree"
+@export var pizzaguy:StaticBody2D
 
-var attacking = false
+@export var SPEED = 300.0
+
+
+@onready var punch: Area2D = $Weapons/Punch
+
+@onready var pizzasprite: Sprite2D = $Pizza/Sprite2D
+@onready var AtkAnims:AnimationPlayer = $"AtkAnims"
+@onready var AnimTree:AnimationTree = $"AnimTree"
+
+
+var has_pizza:bool = false
+var attacking:bool = false
+
+
+func _ready() -> void:
+	pizzaguy.pizza_delivered.connect(_on_pizza_delivered)
 
 
 func _physics_process(_delta):	
@@ -29,6 +42,12 @@ func _physics_process(_delta):
 
 func startAttack():
 	attacking = true
-
+	punch.set_collision_layer_value(1,true)
+	punch.set_collision_mask_value(1,true)
 func endAttack():
 	attacking = false
+	punch.set_collision_layer_value(1,false)
+	punch.set_collision_mask_value(1,false)
+func _on_pizza_delivered():
+	pizzasprite.visible = true
+	

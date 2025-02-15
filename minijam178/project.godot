@@ -22,6 +22,7 @@ project/assembly_name="Minijam178"
 [global_group]
 
 player=""
+punch=""
 
 [input]
 

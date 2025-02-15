@@ -103,63 +103,6 @@ tracks/3/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_nnc7x"]
-resource_name = "punch_up"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapons:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5708]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapons:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.433333),
-"transitions": PackedFloat32Array(-2, 2, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, -42)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapons:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"startAttack"
-}, {
-"args": [],
-"method": &"endAttack"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_ir1pt"]
 resource_name = "punch_left"
 length = 0.5
@@ -243,6 +186,63 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(-2, 2, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-10, 0), Vector2(42, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapons:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"startAttack"
+}, {
+"args": [],
+"method": &"endAttack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_nnc7x"]
+resource_name = "punch_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapons:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapons:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.433333),
+"transitions": PackedFloat32Array(-2, 2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, -42)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -361,7 +361,7 @@ libraries = {
 [node name="Weapons" type="Node2D" parent="."]
 visible = false
 
-[node name="Punch" parent="Weapons" instance=ExtResource("3_ic3xe")]
+[node name="Punch" parent="Weapons" groups=["punch"] instance=ExtResource("3_ic3xe")]
 position = Vector2(-20, 0)
 
 [node name="AnimTree" type="AnimationTree" parent="."]
@@ -370,3 +370,11 @@ anim_player = NodePath("../AtkAnims")
 parameters/Atk/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="Pizza" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pizza"]
+visible = false
+position = Vector2(-49, -34)
+scale = Vector2(0.210938, 0.21875)
+texture = ExtResource("2_u7bw5")

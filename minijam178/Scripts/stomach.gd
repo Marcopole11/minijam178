@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var interactor_Area:Area2D
+@export var player:CharacterBody2D
 
 @export_category("stats")
 @export_group("needs") #all var related to needs of the monster
@@ -12,14 +13,15 @@ extends StaticBody2D
 
 @export_group("rage") #all var related to the rage of the monster
 @export var max_rage:float = 100
-@export var rage_increase:float = 1
+@export var rage_change:float = 1
 @export var rage:float = 0
 @export var rage_bar:TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	need = max_need
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	need_bar.value = need
@@ -33,5 +35,14 @@ func interact():
 func needHandle():
 	if need > 0:
 		need -= need_decrease
-	else:
-		rage += rage_increase
+		if rage > 0:
+			rage -= rage_change
+	elif rage < max_rage:
+		rage += rage_change
+
+
+
+func _on_interactor_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and player.pizzasprite.visible and need < max_rage:
+		need = need_increase
+		player.pizzasprite.visible = false

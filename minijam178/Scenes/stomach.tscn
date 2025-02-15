@@ -54,3 +54,5 @@ offset_top = -94.0
 offset_right = 43.0
 offset_bottom = -71.0
 text = "ESTOMAGO"
+
+[connection signal="body_entered" from="Interactor_Area" to="." method="_on_interactor_area_body_entered"]
