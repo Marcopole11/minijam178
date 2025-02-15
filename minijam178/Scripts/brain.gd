@@ -28,7 +28,8 @@ func _process(delta: float) -> void:
 		rage += rage_change
 	elif rage >= 0:
 		rage -= rage_change
-
+	if rage >= 100 and GlobalVariables.totalrage < 100:
+		GlobalVariables.totalrage += 0.01
 func spawnquestion():
 	var question = QUESTIONTHOUGHTS.instantiate()
 	question.position = Vector2(0,0)

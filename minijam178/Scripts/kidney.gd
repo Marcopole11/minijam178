@@ -13,6 +13,7 @@ extends StaticBody2D
 @export var max_rage:float = 100
 @export var rage_change:float = 1
 @export var rage:float = 0
+@onready var camera_2d: Camera2D = $Camera2D
 
 
 @export var spawnrage:int = 100
@@ -28,7 +29,8 @@ func _process(delta: float) -> void:
 		rage += rage_change
 	elif rage > 0:
 		rage -= rage_change
-
+	if rage >= 100 and GlobalVariables.totalrage < 100:
+		GlobalVariables.totalrage += 0.01
 func spawnrock():
 	var rock = KIDNEY_ROCK.instantiate()
 	rock.position = spawner.position + Vector2(randi_range(-spawnrage,spawnrage),randi_range(-spawnrage,spawnrage))
