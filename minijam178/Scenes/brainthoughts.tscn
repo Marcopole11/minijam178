@@ -1,76 +1,152 @@
-[gd_scene load_steps=3 format=3 uid="uid://chpxs27om4tf6"]
+[gd_scene load_steps=5 format=3 uid="uid://chpxs27om4tf6"]
 
 [ext_resource type="Script" path="res://Scripts/brainthoughts.gd" id="1_qk2to"]
+[ext_resource type="Texture2D" uid="uid://bg0oqa2o3llb5" path="res://textures/tiles/dialogBox.png" id="2_egncu"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="3_dv5rp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4713l"]
-size = Vector2(33, 14.5)
+size = Vector2(62.7143, 61.1986)
 
 [node name="Brainthoughts" type="Node2D"]
 script = ExtResource("1_qk2to")
 
-[node name="Container" type="AspectRatioContainer" parent="."]
+[node name="Container" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 68.0
-offset_bottom = 23.0
+offset_right = 32.0
+offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.94533, 1.94449)
 
-[node name="Question" type="Label" parent="Container"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Container"]
 layout_mode = 2
-text = "question
-"
+texture = ExtResource("2_egncu")
+region_rect = Rect2(0, 0, 48, 49)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Question" type="Label" parent="Container/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.478431, 0.478431, 0.337255, 0.588235)
+theme_override_fonts/font = ExtResource("3_dv5rp")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
 
 [node name="Answer1" type="Area2D" parent="Container"]
-position = Vector2(-55, 56)
-
-[node name="Answer1" type="Label" parent="Container/Answer1"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "aaa"
+position = Vector2(-4.11241, -88.9693)
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer1"]
-position = Vector2(0, 2.25)
+position = Vector2(19.9547, 20.2842)
 shape = SubResource("RectangleShape2D_4713l")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Container/Answer1"]
+offset_right = 32.0
+offset_bottom = 37.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Container/Answer1/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_egncu")
+region_rect = Rect2(0, 0, 48, 49)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/Answer1/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Container/Answer1/MarginContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.478431, 0.478431, 0.337255, 0.588235)
+theme_override_fonts/font = ExtResource("3_dv5rp")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
 
 [node name="Answer2" type="Area2D" parent="Container"]
-position = Vector2(22.1043, -41.142)
-
-[node name="Answer2" type="Label" parent="Container/Answer2"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 28.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "aaa"
+position = Vector2(111, 44)
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer2"]
-position = Vector2(14, 13)
+position = Vector2(15.9708, 18.9985)
 shape = SubResource("RectangleShape2D_4713l")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Container/Answer2"]
+offset_right = 32.0
+offset_bottom = 37.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Container/Answer2/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_egncu")
+region_rect = Rect2(0, 0, 48, 49)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/Answer2/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Container/Answer2/MarginContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.478431, 0.478431, 0.337255, 0.588235)
+theme_override_fonts/font = ExtResource("3_dv5rp")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
 
 [node name="Answer3" type="Area2D" parent="Container"]
-position = Vector2(111, 44)
-
-[node name="Answer3" type="Label" parent="Container/Answer3"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 28.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "aaa"
+position = Vector2(-119.774, 44.2275)
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer3"]
-position = Vector2(14, 13)
+position = Vector2(19.9547, 20.2842)
 shape = SubResource("RectangleShape2D_4713l")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Container/Answer3"]
+offset_right = 32.0
+offset_bottom = 37.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Container/Answer3/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_egncu")
+region_rect = Rect2(0, 0, 48, 49)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/Answer3/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="Container/Answer3/MarginContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.478431, 0.478431, 0.337255, 0.588235)
+theme_override_fonts/font = ExtResource("3_dv5rp")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Container/Answer1" to="." method="_on_answer_1_area_entered"]
 [connection signal="area_entered" from="Container/Answer2" to="." method="_on_answer_2_area_entered"]
