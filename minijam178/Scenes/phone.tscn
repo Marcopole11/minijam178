@@ -25,6 +25,7 @@ call_sound = NodePath("AudioStreamPlayer2D")
 texture = ExtResource("2_vqf3e")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
 polygon = PackedVector2Array(-66, 0, -55, 20, -55, 31, -58, 41, -49, 58, -58, 80, -71, 99, -79, 101, -89, 115, -101, 123, -95, 129, -69, 129, -33, 124, 20, 127, 58, 123, 63, 114, 56, 105, 61, 94, 98, 77, 99, 62, 65, -7)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -38,12 +39,12 @@ polygon = PackedVector2Array(-66, 0, -55, 20, -55, 31, -58, 41, -49, 58, -58, 80
 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
-offset_left = -93.0
-offset_top = -68.0
-offset_right = -53.0
-offset_bottom = -28.0
-rotation = -0.431779
-scale = Vector2(2.8609, 4.94903)
+offset_left = -88.0
+offset_top = -62.0
+offset_right = -48.0
+offset_bottom = -22.0
+rotation = -0.474014
+scale = Vector2(2.57195, 4.48935)
 texture = ExtResource("4_ef2qd")
 expand_mode = 1
 
