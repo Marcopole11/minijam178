@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://chpxs27om4tf6"]
+
+[ext_resource type="Script" path="res://Scripts/brainthoughts.gd" id="1_qk2to"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4713l"]
+size = Vector2(33, 14.5)
+
+[node name="Brainthoughts" type="Node2D"]
+script = ExtResource("1_qk2to")
+
+[node name="Container" type="AspectRatioContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 68.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.94533, 1.94449)
+
+[node name="Question" type="Label" parent="Container"]
+layout_mode = 2
+text = "question
+"
+
+[node name="Answer1" type="Area2D" parent="Container"]
+position = Vector2(-55, 56)
+
+[node name="Answer1" type="Label" parent="Container/Answer1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer1"]
+position = Vector2(0, 2.25)
+shape = SubResource("RectangleShape2D_4713l")
+
+[node name="Answer2" type="Area2D" parent="Container"]
+position = Vector2(22.1043, -41.142)
+
+[node name="Answer2" type="Label" parent="Container/Answer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 28.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer2"]
+position = Vector2(14, 13)
+shape = SubResource("RectangleShape2D_4713l")
+
+[node name="Answer3" type="Area2D" parent="Container"]
+position = Vector2(111, 44)
+
+[node name="Answer3" type="Label" parent="Container/Answer3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 28.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer3"]
+position = Vector2(14, 13)
+shape = SubResource("RectangleShape2D_4713l")
+
+[connection signal="area_entered" from="Container/Answer1" to="." method="_on_answer_1_area_entered"]
+[connection signal="area_entered" from="Container/Answer2" to="." method="_on_answer_2_area_entered"]
+[connection signal="area_entered" from="Container/Answer3" to="." method="_on_answer_3_area_entered"]
