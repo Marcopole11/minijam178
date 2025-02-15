@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxcg1q15yd5q3"]
+
+[ext_resource type="Script" path="res://Scripts/kidney_rock.gd" id="1_4jw3n"]
+[ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="1_fkf15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu5im"]
+size = Vector2(64, 64)
+
+[node name="kidneyRock" type="StaticBody2D"]
+script = ExtResource("1_4jw3n")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.507813, 0.507813)
+texture = ExtResource("1_fkf15")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_wu5im")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
