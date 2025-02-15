@@ -12,7 +12,7 @@ const GOOFYTHOUGHTS = preload("res://Scenes/goofythoughts.tscn")
 @export var rage_change:float = 1
 @export var rage:float = 0
 
-var spawnrange:int = 100
+var spawnrange:int = 60
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	rage_bar.value = rage
 	
-	if thought_spawner.get_child_count() != 0 and rage <= 100:
+	if question_spawner.get_child_count() != 0 and rage <= 100:
 		rage += rage_change
 	elif rage >= 0:
 		rage -= rage_change
