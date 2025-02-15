@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_g4ryt"]
 [ext_resource type="Texture2D" uid="uid://b8b0yqubfgyo" path="res://textures/mainCharParts/frontBody.png" id="2_irjh1"]
-[ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="2_u7bw5"]
 [ext_resource type="Texture2D" uid="uid://crko36ybi4hl2" path="res://textures/mainCharParts/FrontHead.png" id="3_5jkvs"]
 [ext_resource type="Texture2D" uid="uid://bnu2o7pl5m2f6" path="res://textures/mainCharParts/frontLeg.png" id="4_c2pxd"]
 [ext_resource type="Texture2D" uid="uid://cdsp46rxerdai" path="res://textures/mainCharParts/handNormal.png" id="5_inov7"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c0e52fym2nvl6" path="res://textures/mainCharParts/SideBody.png" id="11_70cc5"]
 [ext_resource type="Texture2D" uid="uid://hyy8lble1svy" path="res://textures/mainCharParts/RigthPunch.png" id="12_bm1xp"]
 [ext_resource type="Texture2D" uid="uid://cfqspognoc2pv" path="res://textures/mainCharParts/BackPunch.png" id="15_jpksp"]
+[ext_resource type="Texture2D" uid="uid://j7wkv4lstnes" path="res://textures/props/Pizza.png" id="16_hen81"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84na2"]
 radius = 22.0
@@ -2844,5 +2844,5 @@ parameters/Walk/blend_position = Vector2(-0.0392491, -0.0854701)
 [node name="Sprite2D" type="Sprite2D" parent="Pizza"]
 visible = false
 position = Vector2(-49, -34)
-scale = Vector2(0.210938, 0.21875)
-texture = ExtResource("2_u7bw5")
+scale = Vector2(1, 1.038)
+texture = ExtResource("16_hen81")

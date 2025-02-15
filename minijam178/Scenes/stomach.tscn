@@ -51,4 +51,4 @@ shape = SubResource("RectangleShape2D_mso00")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-197, -76, -197, -68, -199.82, -62.1864, -198, -58, -204, -59, -221, -50, -227, -40, -230, -29, -219, -12, -207, -5, -184, -5, -171, -10, -187, -28, -181, -33, -162, -32, -138, -22, -117, -7, -97, -5, -78, -15, -63, -31, -54, -30, -44, -28, -27, -17, 4, 13, 3, 20, -20, 34, -36, 55, -36, 67, -19, 84, 11, 85, 19, 85, 48, 95, 71, 96, 86, 93, 104, 96, 119, 97, 135, 89, 184, 103, 208, 104, 219, 100, 173, 69, 142, 56, 125, 54, 114, 60, 89, 79, 61, 60, 39, 50, 24, 49, 54, 20, 76.822, 14.7694, 104, -2, 115, -17, 114, -48, 99.2812, -67.7955, 77, -84, 52, -94, 48, -102, 35, -103, 0, -108, -36, -105, -87, -96, -112, -87, -121, -74, -124, -51, -142, -58, -143, -69, -169, -80)
 
-[connection signal="body_entered" from="Interactor_Area" to="." method="_on_interactor_area_body_entered"]
+[connection signal="area_entered" from="Interactor_Area" to="." method="_on_interactor_area_area_entered"]

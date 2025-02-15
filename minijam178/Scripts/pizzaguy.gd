@@ -3,7 +3,6 @@ extends StaticBody2D
 @export var phone:Node2D 
 @export var timeleft_bar:TextureProgressBar
 @export var pizzaGuy_sprite:Sprite2D
-@export var colision:CollisionPolygon2D
 
 @onready var pizzaTimer: Timer = $pizzaTimer
 @onready var hitbox: Area2D = $Area2D
@@ -13,7 +12,6 @@ signal pizza_delivered
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	colision.disabled = true
 	phone.calling_pizza.connect(_on_calling_pizza)
 	phone_sound.connect(phone.play_sound)
 
@@ -26,15 +24,10 @@ func _on_calling_pizza():
 		pizzaTimer.start()
 		phone_sound.emit()
 		
-func _on_area_2d_body_entered(body: Area2D) -> void:
-	print("touched")
-	if body.is_in_group("punch") and pizzaGuy_sprite.visible :
-		print("touched2")
-		colision.disabled = true
-		pizzaGuy_sprite.hide()
-		pizza_delivered.emit()
-		
 func _on_timer_timeout() -> void:
 	pizzaGuy_sprite.show()
-	colision.disabled = false
-	
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("punch") and pizzaGuy_sprite.visible :
+		pizzaGuy_sprite.hide()
+		pizza_delivered.emit()
