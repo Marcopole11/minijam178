@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 
 
-@onready var punch: Area2D = $Weapons/Punch
+@onready var punch: Area2D = $PunchArea2D
 
 @onready var pizzasprite: Sprite2D = $Pizza/Sprite2D
 @onready var AtkAnims:AnimationPlayer = $"AtkAnims"
@@ -14,6 +14,7 @@ extends CharacterBody2D
 
 var has_pizza:bool = false
 @export var attacking:bool = false
+@export var attack_resseteable = false
 var orientation:Vector2 = Vector2.DOWN
 
 
@@ -33,13 +34,16 @@ func _physics_process(_delta):
 			orientation = Vector2.RIGHT if direction.x > 0 else Vector2.LEFT
 		else:
 			orientation = Vector2.DOWN if direction.y > 0 else Vector2.UP
-			
+	
+	if attacking:
+		direction *= 0 
 	velocity = direction * SPEED
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("punch") and !attacking:
+	if Input.is_action_just_pressed("punch") and (not attacking or attack_resseteable):
 		AnimTree.set("parameters/Attack/blend_position", orientation)
 		AnimTree.set("parameters/conditions/attack", true)
+		AnimTree.get("parameters/playback").start("Attack", true)
 		
 	if velocity != Vector2.ZERO:
 		AnimTree.set("parameters/Idle/blend_position", orientation)
