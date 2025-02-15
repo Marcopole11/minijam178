@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://hvqm2dwxtwg6"]
+[gd_scene load_steps=3 format=3 uid="uid://b5plwneh2ccy7"]
 
-[ext_resource type="Texture2D" uid="uid://beeqlflvv0eyt" path="res://textures/tiles/TestTiles.png" id="1_t0a05"]
+[ext_resource type="Texture2D" uid="uid://hyy8lble1svy" path="res://textures/mainCharParts/RigthPunch.png" id="1_20k2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukanm"]
 size = Vector2(42, 18)
@@ -9,8 +9,7 @@ size = Vector2(42, 18)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(11, -2.38419e-07)
-scale = Vector2(0.0273438, 0.0277778)
-texture = ExtResource("1_t0a05")
+texture = ExtResource("1_20k2s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, 2.38419e-07)
