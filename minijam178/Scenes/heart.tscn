@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://buraukd85vvlu"]
+[gd_scene load_steps=8 format=3 uid="uid://buraukd85vvlu"]
 
 [ext_resource type="Script" path="res://Scripts/heart.gd" id="1_7mgdm"]
 [ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="3_pi4lc"]
 [ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="4_vhjkl"]
 [ext_resource type="Texture2D" uid="uid://1ahf78l8qilw" path="res://textures/stations/Heart.png" id="4_wko3q"]
+[ext_resource type="AudioStream" uid="uid://rer7iw10jqdl" path="res://Sounds/meaty_punch.wav" id="5_k81yv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pl3ss"]
+radius = 47.9469
+height = 273.049
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlcn7"]
+radius = 23.1948
 
 [node name="Heart" type="StaticBody2D"]
 position = Vector2(0, -1)
@@ -11,6 +19,7 @@ script = ExtResource("1_7mgdm")
 need_decrease = 0.1
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(0.5, -1)
 polygon = PackedVector2Array(-44.5, -46, -55.5, -33, -92.5, -30, -113.5, -17, -129.5, -12, -142.5, -12, -150.5, -7, -147.5, -4, -131.5, -1, -160.5, 21, -155.5, 23, -138.5, 22, -129.5, 17, -117.5, 20, -84.5, 1, -102.714, 28.0878, -108.5, 47, -115.5, 57, -102.5, 55, -88.5, 36, -71.5, 24, -51.5, 31, -70.5, 45, -78.5, 57, -90.5, 65, -88.5, 72, -73.5, 71, -50.5, 57, -25.5, 50, -10.5, 57, 37.5, 56, 49.5, 49, 80.5, 50, 111.5, 44, 135.5, 36, 151.5, 35, 157.5, 31, 161.5, 22, 152.5, 4, 142.5, -22, 134.5, -36, 133.5, -42, 126.5, -44, 114.5, -53, 97.5, -62, 73.5, -64, 65.5, -70, 31.5, -70, 7.5, -61, 5.5, -56, -4.5, -50, -17.5, -58, -27.5, -52, -39.5, -52)
 
@@ -42,8 +51,18 @@ texture = ExtResource("4_wko3q")
 [node name="Interactor_Area" type="Area2D" parent="."]
 position = Vector2(2, 0)
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Interactor_Area"]
-position = Vector2(0.5, -1)
-polygon = PackedVector2Array(-44.5, -46, -55.5, -33, -92.5, -30, -113.5, -17, -129.5, -12, -142.5, -12, -150.5, -7, -147.5, -4, -131.5, -1, -160.5, 21, -155.5, 23, -138.5, 22, -129.5, 17, -117.5, 20, -84.5, 1, -102.714, 28.0878, -108.5, 47, -115.5, 57, -102.5, 55, -88.5, 36, -71.5, 24, -51.5, 31, -70.5, 45, -78.5, 57, -90.5, 65, -88.5, 72, -73.5, 71, -50.5, 57, -25.5, 50, -10.5, 57, 37.5, 56, 49.5, 49, 80.5, 50, 111.5, 44, 135.5, 36, 151.5, 35, 157.5, 31, 161.5, 22, 152.5, 4, 142.5, -22, 134.5, -36, 133.5, -42, 126.5, -44, 114.5, -53, 97.5, -62, 73.5, -64, 65.5, -70, 31.5, -70, 7.5, -61, 5.5, -56, -4.5, -50, -17.5, -58, -27.5, -52, -39.5, -52)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactor_Area"]
+position = Vector2(8, -1)
+rotation = -1.67525
+shape = SubResource("CapsuleShape2D_pl3ss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor_Area"]
+position = Vector2(45, -51)
+shape = SubResource("CircleShape2D_nlcn7")
+
+[node name="CrunchyPunchPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k81yv")
+volume_db = -6.688
+bus = &"Sound"
 
 [connection signal="area_entered" from="Interactor_Area" to="." method="_on_interactor_area_area_entered"]
