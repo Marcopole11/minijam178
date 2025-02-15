@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://byc6xlkqcithr"]
+[gd_scene load_steps=9 format=3 uid="uid://byc6xlkqcithr"]
 
 [ext_resource type="Script" path="res://Scripts/phone.gd" id="1_nvc3l"]
 [ext_resource type="Texture2D" uid="uid://dg4cad0sccaf6" path="res://textures/stations/Smartphone.png" id="2_vqf3e"]
 [ext_resource type="AudioStream" uid="uid://ccwfdxnqflylh" path="res://Sounds/Cartoon phone call (sound effect) [uO6G3g5UZKA].mp3" id="3_l0i3a"]
+[ext_resource type="Texture2D" uid="uid://ch4hw8yu5ko31" path="res://textures/backgroundLines.png" id="4_ef2qd"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="5_6r4lt"]
+[ext_resource type="Texture2D" uid="uid://bjv7t03hcxdxb" path="res://textures/props/PizzaIcon.png" id="6_cm3p3"]
+[ext_resource type="Texture2D" uid="uid://03cg5gfo0vo0" path="res://textures/pizzaManParts/LeftHead.png" id="7_13kp1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_63nnb"]
+line_spacing = 1.0
+font_size = 30
+font_color = Color(0.976471, 0.54902, 0.321569, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="phone" type="Node2D" node_paths=PackedStringArray("call_sound")]
 script = ExtResource("1_nvc3l")
@@ -14,14 +25,126 @@ call_sound = NodePath("AudioStreamPlayer2D")
 texture = ExtResource("2_vqf3e")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
 polygon = PackedVector2Array(-66, 0, -55, 20, -55, 31, -58, 41, -49, 58, -58, 80, -71, 99, -79, 101, -89, 115, -101, 123, -95, 129, -69, 129, -33, 124, 20, 127, 58, 123, 63, 114, 56, 105, 61, 94, 98, 77, 99, 62, 65, -7)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_l0i3a")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-66, 0, -55, 20, -55, 31, -58, 41, -49, 58, -58, 80, -71, 99, -79, 101, -89, 115, -101, 123, -95, 129, -69, 129, -33, 124, 20, 127, 58, 123, 63, 114, 56, 105, 61, 94, 98, 77, 99, 62, 65, -7)
 
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+offset_left = -93.0
+offset_top = -68.0
+offset_right = -53.0
+offset_bottom = -28.0
+rotation = -0.431779
+scale = Vector2(2.8609, 4.94903)
+texture = ExtResource("4_ef2qd")
+expand_mode = 1
+
+[node name="BasicScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -9.22962
+offset_top = 59.8886
+offset_right = 99.7704
+offset_bottom = 59.8886
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BasicScreen"]
+offset_left = -50.7704
+offset_top = -95.8886
+offset_right = 58.2296
+offset_bottom = 55.1114
+rotation = -0.486947
+scale = Vector2(0.7, 0.7)
+
+[node name="Label" type="Label" parent="BasicScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6r4lt")
+text = "BUY PIZZA 
+"
+label_settings = SubResource("LabelSettings_63nnb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="BasicScreen/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_cm3p3")
+
+[node name="Label2" type="Label" parent="BasicScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6r4lt")
+text = "NOW"
+label_settings = SubResource("LabelSettings_63nnb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadingScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -12.0
+offset_top = 47.0
+offset_right = 97.0
+offset_bottom = 47.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadingScreen"]
+offset_left = -50.0
+offset_top = -89.0
+offset_right = 59.0
+offset_bottom = 62.0
+rotation = -0.486947
+scale = Vector2(0.7, 0.7)
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="LoadingScreen/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_13kp1")
+stretch_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="LoadingScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="PizzaScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -9.22962
+offset_top = 59.8886
+offset_right = 99.7704
+offset_bottom = 59.8886
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PizzaScreen"]
+offset_left = -50.7704
+offset_top = -95.8886
+offset_right = 58.2296
+offset_bottom = 55.1114
+rotation = -0.486947
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect2" type="TextureRect" parent="PizzaScreen/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_cm3p3")
+
+[node name="Label2" type="Label" parent="PizzaScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_6r4lt")
+text = "TAKE IT
+ NOW"
+label_settings = SubResource("LabelSettings_63nnb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pizzaTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="pizzaTimer" to="." method="_on_pizza_timer_timeout"]
