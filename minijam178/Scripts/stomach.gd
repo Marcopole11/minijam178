@@ -5,7 +5,7 @@ extends StaticBody2D
 
 @export_category("stats")
 @export_group("needs") #all var related to needs of the monster
-@export var max_need:float = 100
+@export var max_need:float = 100 
 @export var need_increase:float = 10
 @export var need_decrease:float = 1
 @export var need:float = 0
@@ -19,7 +19,7 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	need_decrease = need_decrease * GlobalVariables.dificulty
 	need = max_need
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

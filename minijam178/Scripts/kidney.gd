@@ -2,7 +2,6 @@ extends StaticBody2D
 
 @onready var spawner: Node2D = $Spawner
 @onready var spawncd: Timer = $Spawncd
-@onready var need_bar: TextureProgressBar = $need_bar
 @onready var rage_bar: TextureProgressBar = $rage_bar
 
 
@@ -20,6 +19,8 @@ extends StaticBody2D
 
 const KIDNEY_ROCK = preload("res://Scenes/kidney_rock.tscn")
 
+func _ready() -> void:
+	spawncd.wait_time = spawncd.wait_time / GlobalVariables.dificulty
 
 func _process(delta: float) -> void:
 	rage_bar.value = rage
@@ -27,6 +28,7 @@ func _process(delta: float) -> void:
 		rage += rage_change
 	elif rage > 0:
 		rage -= rage_change
+
 func spawnrock():
 	var rock = KIDNEY_ROCK.instantiate()
 	rock.position = spawner.position + Vector2(randi_range(-spawnrage,spawnrage),randi_range(-spawnrage,spawnrage))

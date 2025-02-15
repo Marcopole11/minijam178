@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxcg1q15yd5q3"]
 
-[ext_resource type="Script" path="res://kidney_rock.gd" id="1_4jw3n"]
+[ext_resource type="Script" path="res://Scripts/kidney_rock.gd" id="1_4jw3n"]
 [ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="1_fkf15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wu5im"]
