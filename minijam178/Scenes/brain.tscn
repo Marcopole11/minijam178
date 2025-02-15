@@ -1,21 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://de68e4nabbqst"]
+[gd_scene load_steps=5 format=3 uid="uid://de68e4nabbqst"]
 
 [ext_resource type="Script" path="res://Scripts/brain.gd" id="1_2jfqv"]
 [ext_resource type="Texture2D" uid="uid://bnry03au5ypvg" path="res://icon.svg" id="2_hi534"]
+[ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="3_rabxi"]
+[ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="4_m44on"]
 
-[node name="Brain" type="Node2D"]
+[node name="Brain" type="StaticBody2D"]
 script = ExtResource("1_2jfqv")
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("2_hi534")
 
-[node name="Container" type="Container" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -123.0
-offset_top = -230.0
-offset_right = 123.0
-offset_bottom = -85.0
-grow_horizontal = 2
-size_flags_horizontal = 4
+[node name="brainTimer" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
+[node name="thoughtSpawner" type="Node2D" parent="."]
+position = Vector2(0, -152)
+
+[node name="rage_bar" type="TextureProgressBar" parent="."]
+offset_left = 90.0
+offset_top = -91.0
+offset_right = 254.0
+offset_bottom = 1373.0
+scale = Vector2(0.0764532, 0.116335)
+value = 30.0
+fill_mode = 3
+texture_under = ExtResource("3_rabxi")
+texture_progress = ExtResource("4_m44on")
+
+[connection signal="timeout" from="brainTimer" to="." method="_on_brain_timer_timeout"]
