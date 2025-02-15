@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e52fym2nvl6"
-path="res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"
+uid="uid://dg4cad0sccaf6"
+path="res://.godot/imported/Smartphone.png-b6299f8d417507a7b61c457912dae082.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mainCharParts/SideBody.png"
-dest_files=["res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"]
+source_file="res://textures/stations/Smartphone.png"
+dest_files=["res://.godot/imported/Smartphone.png-b6299f8d417507a7b61c457912dae082.ctex"]
 
 [params]
 

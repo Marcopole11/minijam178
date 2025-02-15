@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e52fym2nvl6"
-path="res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"
+uid="uid://okqha2vjdk15"
+path="res://.godot/imported/Stomack.png-e01cb1eb3f01c6fd373db47c1eba868d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mainCharParts/SideBody.png"
-dest_files=["res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"]
+source_file="res://textures/stations/Stomack.png"
+dest_files=["res://.godot/imported/Stomack.png-e01cb1eb3f01c6fd373db47c1eba868d.ctex"]
 
 [params]
 

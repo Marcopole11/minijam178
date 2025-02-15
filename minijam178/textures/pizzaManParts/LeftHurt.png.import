@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e52fym2nvl6"
-path="res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"
+uid="uid://cb5y258exavko"
+path="res://.godot/imported/LeftHurt.png-8cf375a7eb83cb21cf46c80e15b74d40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mainCharParts/SideBody.png"
-dest_files=["res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"]
+source_file="res://textures/pizzaManParts/LeftHurt.png"
+dest_files=["res://.godot/imported/LeftHurt.png-8cf375a7eb83cb21cf46c80e15b74d40.ctex"]
 
 [params]
 

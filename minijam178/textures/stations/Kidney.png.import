@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e52fym2nvl6"
-path="res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"
+uid="uid://colbw3ktj6mim"
+path="res://.godot/imported/Kidney.png-b6d0a6e913dec7059893653d19af4584.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mainCharParts/SideBody.png"
-dest_files=["res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"]
+source_file="res://textures/stations/Kidney.png"
+dest_files=["res://.godot/imported/Kidney.png-b6d0a6e913dec7059893653d19af4584.ctex"]
 
 [params]
 

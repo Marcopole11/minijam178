@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e52fym2nvl6"
-path="res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"
+uid="uid://bta0qbsrf8sqm"
+path="res://.godot/imported/randomFlesh1.png-59cf2afeed06ae7cfd2961640cbae086.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mainCharParts/SideBody.png"
-dest_files=["res://.godot/imported/SideBody.png-9382bc8df0c7941e6ff7ca7519ae4bfa.ctex"]
+source_file="res://textures/props/randomFlesh1.png"
+dest_files=["res://.godot/imported/randomFlesh1.png-59cf2afeed06ae7cfd2961640cbae086.ctex"]
 
 [params]
 
