@@ -58,6 +58,7 @@ offset_right = 99.7704
 offset_bottom = 59.8886
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BasicScreen"]
+layout_mode = 0
 offset_left = -50.7704
 offset_top = -95.8886
 offset_right = 58.2296
@@ -96,6 +97,7 @@ offset_right = 97.0
 offset_bottom = 47.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LoadingScreen"]
+layout_mode = 0
 offset_left = -50.0
 offset_top = -89.0
 offset_right = 59.0
@@ -122,6 +124,7 @@ offset_right = 99.7704
 offset_bottom = 59.8886
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PizzaScreen"]
+layout_mode = 0
 offset_left = -50.7704
 offset_top = -95.8886
 offset_right = 58.2296
