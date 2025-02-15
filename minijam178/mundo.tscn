@@ -11,6 +11,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("pizzaguy") instance=ExtResource("1_4w6mk")]
+top_level = false
+z_index = 1
 pizzaguy = NodePath("../Pizzaguy")
 
 [node name="Polygon2D" type="StaticBody2D" parent="."]

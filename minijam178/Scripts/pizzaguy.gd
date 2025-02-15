@@ -29,5 +29,7 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("punch") and pizzaGuy_sprite.visible :
+		pizzaGuy_sprite.texture = load("res://textures/props/PizzaManHit.png")
+		await get_tree().create_timer(1.2).timeout
 		pizzaGuy_sprite.hide()
 		pizza_delivered.emit()

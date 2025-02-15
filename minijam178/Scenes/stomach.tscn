@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="4_em31p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mso00"]
-size = Vector2(58, 25)
+size = Vector2(66, 36)
 
 [node name="Stomach" type="StaticBody2D" node_paths=PackedStringArray("interactor_Area", "need_bar", "rage_bar")]
 script = ExtResource("1_q665v")
@@ -45,7 +45,7 @@ texture_progress = ExtResource("4_em31p")
 position = Vector2(2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor_Area"]
-position = Vector2(-173, -71.5)
+position = Vector2(-171, -69)
 shape = SubResource("RectangleShape2D_mso00")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
