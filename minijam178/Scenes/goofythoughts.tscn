@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgmp12txucntb"]
+[gd_scene load_steps=7 format=3 uid="uid://dnjqqcobtitw3"]
 
 [ext_resource type="Script" path="res://Scripts/goofythoughts.gd" id="1_ufpwx"]
-[ext_resource type="Texture2D" path="res://textures/tiles/dialogBox.png" id="2_t5fv1"]
-[ext_resource type="FontFile" path="res://Fonts/PixelGame-R9AZe.otf" id="3_2slhi"]
+[ext_resource type="Texture2D" uid="uid://bg0oqa2o3llb5" path="res://textures/tiles/dialogBox.png" id="2_t5fv1"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="3_2slhi"]
 
 [sub_resource type="Animation" id="Animation_d1xal"]
 resource_name = "fade_out"
