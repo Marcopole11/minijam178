@@ -44,4 +44,5 @@ func needHandle():
 func _on_interactor_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("punch") and need < max_need:
 		need += need_increase
+		$CrunchyPunchPlayer.play()
 		
