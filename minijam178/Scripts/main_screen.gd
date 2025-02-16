@@ -5,6 +5,8 @@ extends Control
 @export var fotitoMove:float;
 @export var fotitoPunchMove:float;
 
+@onready var btn_play: Button = $VBoxContainer/BTN_Play
+
 var sBack:ShaderMaterial
 var sSize:float
 var fMC:TextureRect
@@ -23,6 +25,7 @@ func _ready():
 	fPunch = fotito.get_node("Punch")
 	fMCK = Vector3(fMC.position.x,fMC.position.y,fMC.rotation)
 	fPunchK = Vector3(fPunch.position.x,fPunch.position.y,fPunch.rotation)
+	btn_play.grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -50,3 +53,6 @@ func _on_btn_options_pressed():
 	
 func _on_btn_exit_pressed():
 	get_tree().quit()
+
+func _on_btn_tutorial_pressed() -> void:
+	get_tree().change_scene_to_file("res://tutorial/Tutorial.tscn")

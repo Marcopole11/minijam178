@@ -1,0 +1,318 @@
+[gd_scene load_steps=15 format=3 uid="uid://b6kcjj3eidwbv"]
+
+[ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_kgsgp"]
+[ext_resource type="Texture2D" uid="uid://cmuubprl7mftr" path="res://textures/tutorial/kidney.png" id="1_vbwqy"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="2_2mwhk"]
+[ext_resource type="Shader" path="res://Scenes/config_screen.gdshader" id="2_twe20"]
+[ext_resource type="Texture2D" uid="uid://b2vbwjd3081px" path="res://textures/tutorial/hearth.png" id="3_aecw2"]
+[ext_resource type="Texture2D" uid="uid://pdqg0tj176t0" path="res://textures/backgroundFlesh.png" id="3_oowcu"]
+[ext_resource type="Texture2D" uid="uid://cbgd2jpu13a6g" path="res://textures/tutorial/brain.png" id="4_4n5x1"]
+[ext_resource type="Texture2D" uid="uid://dug4ddfgbnkdi" path="res://textures/tutorial/phone.png" id="6_etlvn"]
+[ext_resource type="Texture2D" uid="uid://bsnc34bj25jlr" path="res://textures/tutorial/pizzaguy.png" id="7_0lpx3"]
+[ext_resource type="Texture2D" uid="uid://bubkrt04k22ny" path="res://textures/tutorial/stomach.png" id="8_3o0md"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6tdw7"]
+shader = ExtResource("2_twe20")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e81kr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqhoo"]
+font = ExtResource("2_2mwhk")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_f47gi"]
+font = ExtResource("2_2mwhk")
+font_size = 40
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kgsgp")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6tdw7")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0221354
+anchor_top = -0.426698
+anchor_right = 1.02214
+anchor_bottom = 1.4267
+offset_left = 25.5
+offset_top = 276.5
+offset_right = -25.5
+offset_bottom = -276.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_oowcu")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e81kr")
+
+[node name="InitialSlider" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/InitialSlider"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/InitialSlider/VBoxContainer"]
+layout_mode = 2
+text = "_GUT PUNCH_"
+label_settings = SubResource("LabelSettings_pqhoo")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/InitialSlider/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "take care of your host's body with carefull punching"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/InitialSlider/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "each organ requires special care for you host to keep working"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/PanelContainer/InitialSlider/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Survive for 3 minutes, and you win!"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="KidneySlide" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/KidneySlide"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/KidneySlide/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/KidneySlide/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_vbwqy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/KidneySlide/VBoxContainer"]
+layout_mode = 2
+text = "Punch those kidney stones out if you way"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="HeartSlide" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HeartSlide"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/HeartSlide/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/HeartSlide/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_aecw2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HeartSlide/VBoxContainer"]
+layout_mode = 2
+text = "give the beat to the hearth"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="BrainSlide" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/BrainSlide"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/BrainSlide/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/BrainSlide/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_4n5x1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/BrainSlide/VBoxContainer"]
+layout_mode = 2
+text = "use your thinking muscle and beat your answer"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="StomachSlide" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/StomachSlide"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/StomachSlide/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/StomachSlide/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_etlvn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/StomachSlide/VBoxContainer"]
+layout_mode = 2
+text = "dial your nearest pizzeria"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="StomachSlide2" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/StomachSlide2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/StomachSlide2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/StomachSlide2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("7_0lpx3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/StomachSlide2/VBoxContainer"]
+layout_mode = 2
+text = "Find your local pizzaguy and (gracefully) grab your pizza"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="StomachSlide3" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/StomachSlide3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/StomachSlide3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/StomachSlide3/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("8_3o0md")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/StomachSlide3/VBoxContainer"]
+layout_mode = 2
+text = "and throw it in that stomach (in the hole)"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_2mwhk")
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_2mwhk")
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+
+[node name="NextButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_2mwhk")
+theme_override_font_sizes/font_size = 40
+text = "NEXT"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
