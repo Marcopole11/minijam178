@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://mkqgh8b23qw1"]
+[gd_scene load_steps=37 format=4 uid="uid://mkqgh8b23qw1"]
 
 [ext_resource type="Texture2D" uid="uid://b3n1ykbsorjek" path="res://textures/tiles/tilemapFlesh.png" id="1_gyp6d"]
 [ext_resource type="Script" path="res://Maps/MapController.gd" id="1_sri8s"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://wnmav3mgfhd7" path="res://Scenes/stomach.tscn" id="6_86eeh"]
 [ext_resource type="Texture2D" uid="uid://cx3g1mcxuclak" path="res://textures/other/RedEffect.png" id="7_cq8sa"]
 [ext_resource type="PackedScene" uid="uid://byc6xlkqcithr" path="res://Scenes/phone.tscn" id="7_xirk8"]
+[ext_resource type="Shader" path="res://distorCamera.gdshader" id="8_73tij"]
 [ext_resource type="PackedScene" uid="uid://i42moxoncfea" path="res://Scenes/pizzaguy.tscn" id="8_jt7o1"]
 [ext_resource type="PackedScene" uid="uid://be2hoy8bwscw7" path="res://pointer_ui.tscn" id="9_305mt"]
 [ext_resource type="Texture2D" uid="uid://c4yoswwl4x1e6" path="res://textures/props/PizzaSpot.png" id="11_cp3ti"]
@@ -162,8 +163,61 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_ofm5g")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sluhe"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wwbcw"]
+seamless = true
+noise = SubResource("FastNoiseLite_sluhe")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2eovu"]
+shader = ExtResource("8_73tij")
+shader_parameter/center = -1.0
+shader_parameter/waves = -0.3
+shader_parameter/force = 0.001
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_wwbcw")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mstuc"]
+
+[sub_resource type="Animation" id="Animation_nm4ew"]
+resource_name = "wiggling"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EfectoVivo:material:shader_parameter/center")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.0, -0.5, -1.0]
+}
+
+[sub_resource type="Animation" id="Animation_sf22m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EfectoVivo:material:shader_parameter/center")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ejfsl"]
+_data = {
+"RESET": SubResource("Animation_sf22m"),
+"wiggling": SubResource("Animation_nm4ew")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jc6e"]
-radius = 11.2196
+radius = 13.9959
 height = 162.778
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jbk44"]
@@ -209,7 +263,7 @@ pizzaguy = NodePath("../Pizzaguy")
 
 [node name="WinCountdownLayer" parent="Player" instance=ExtResource("16_hdhtm")]
 
-[node name="TextureRect" type="TextureRect" parent="Player/WinCountdownLayer"]
+[node name="occlusionRed" type="TextureRect" parent="Player/WinCountdownLayer"]
 modulate = Color(1, 1, 1, 0.313726)
 anchors_preset = -1
 anchor_top = 0.054
@@ -220,6 +274,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_cq8sa")
 expand_mode = 1
+
+[node name="EfectoVivo" type="TextureRect" parent="Player/WinCountdownLayer"]
+material = SubResource("ShaderMaterial_2eovu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_mstuc")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/WinCountdownLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_ejfsl")
+}
+autoplay = "wiggling"
 
 [node name="Kidney" parent="." instance=ExtResource("3_m2wav")]
 process_mode = 1
@@ -262,7 +332,6 @@ texture = ExtResource("11_cp3ti")
 
 [node name="PointerUi" parent="." node_paths=PackedStringArray("player", "heartNode", "brainNode", "kidneyNode", "stomachNode") instance=ExtResource("9_305mt")]
 process_mode = 1
-visible = false
 player = NodePath("../Player")
 heartNode = NodePath("../Heart")
 brainNode = NodePath("../Brain")
@@ -290,13 +359,13 @@ texture = ExtResource("19_rlfny")
 [node name="StaticBody2D" type="StaticBody2D" parent="RandomFlesh1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RandomFlesh1/StaticBody2D"]
-position = Vector2(-54, 9)
+position = Vector2(-54, 15)
 rotation = -1.42419
 scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_1jc6e")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RandomFlesh1/StaticBody2D"]
-position = Vector2(71.0001, 36)
+position = Vector2(70.0001, 32)
 rotation = -1.54636
 scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_jbk44")
