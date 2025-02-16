@@ -195,7 +195,7 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/HeartSlide/VBoxContainer"]
 layout_mode = 2
-text = "give the beat to the hearth"
+text = "give the beat to the heart"
 label_settings = SubResource("LabelSettings_f47gi")
 horizontal_alignment = 1
 
