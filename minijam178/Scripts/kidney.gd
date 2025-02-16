@@ -2,6 +2,8 @@ extends StaticBody2D
 
 const KIDNEY_ROCK = preload("res://Scenes/kidney_rock.tscn")
 
+signal organ_failure
+
 @export_category("stats")
 @export_group("need")
 @export var maxrocks:int = 5
@@ -23,6 +25,8 @@ func _process(delta: float) -> void:
 	if spawner.get_child_count() > 0 and rage < 100:
 		rage += rage_change * delta * spawner.get_child_count()
 		rage = min(rage, max_rage)
+		if rage == max_rage:
+			organ_failure.emit()
 	elif rage > 0:
 		rage -= rage_change * delta * 10
 		rage = max(rage, 0)

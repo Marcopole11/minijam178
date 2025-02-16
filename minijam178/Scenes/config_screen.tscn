@@ -1,31 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce6b3sigusthk"]
+[gd_scene load_steps=4 format=3 uid="uid://bytxqi5g4ofgl"]
 
-[ext_resource type="Script" path="res://Scripts/master_sound.gd" id="1_4tv6d"]
-[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="1_kwbl4"]
+[ext_resource type="Script" path="res://Scenes/config_screen.gd" id="1_2tkqi"]
+[ext_resource type="Script" path="res://Scripts/master_sound.gd" id="1_ejy8f"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="2_b6p45"]
 
-[sub_resource type="GDScript" id="GDScript_t4wlr"]
-script/source = "extends CanvasLayer
-
-func _on_button_quit_pressed() -> void:
-	get_tree().quit()
-
-func _on_go_menu_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file(\"res://Scenes/mainScreen.tscn\")
-	
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(\"ui_cancel\"):
-		visible = !visible
-		get_tree().paused = !get_tree().paused
-"
-
-[node name="pause_menu" type="CanvasLayer"]
-process_mode = 3
-layer = 10
-follow_viewport_enabled = true
-script = SubResource("GDScript_t4wlr")
+[node name="configScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tkqi")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,8 +30,7 @@ layout_mode = 2
 
 [node name="Master sound" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_kwbl4")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("2_b6p45")
 text = "Master Volume
 "
 
@@ -51,13 +39,12 @@ layout_mode = 2
 max_value = 1.0
 step = 0.001
 value = 0.05
-script = ExtResource("1_4tv6d")
+script = ExtResource("1_ejy8f")
 bus_name = "Master"
 
 [node name="Sound" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_kwbl4")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("2_b6p45")
 text = "Sound Volume
 "
 
@@ -66,13 +53,12 @@ layout_mode = 2
 max_value = 1.0
 step = 0.001
 value = 0.05
-script = ExtResource("1_4tv6d")
+script = ExtResource("1_ejy8f")
 bus_name = "Sound"
 
 [node name="Music" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_kwbl4")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("2_b6p45")
 text = "Music Volume
 "
 
@@ -81,7 +67,7 @@ layout_mode = 2
 max_value = 1.0
 step = 0.001
 value = 0.05
-script = ExtResource("1_4tv6d")
+script = ExtResource("1_ejy8f")
 bus_name = "Music"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
@@ -94,30 +80,24 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -87.0
-offset_bottom = -56.0
+offset_top = 5.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="button_quit" type="Button" parent="MarginContainer/VBoxContainer/HSeparator/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 10
-theme_override_fonts/font = ExtResource("1_kwbl4")
-theme_override_font_sizes/font_size = 20
-text = "Quit to desktop
-"
-metadata/_edit_use_anchors_ = true
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_b6p45")
+text = "Quit to desktop"
 
 [node name="go_menu" type="Button" parent="MarginContainer/VBoxContainer/HSeparator/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 10
-theme_override_fonts/font = ExtResource("1_kwbl4")
-theme_override_font_sizes/font_size = 20
-text = "Quit to menu
-"
-metadata/_edit_use_anchors_ = true
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_b6p45")
+text = "Quit to menu"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HSeparator/MarginContainer/button_quit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HSeparator/MarginContainer/go_menu" to="." method="_on_go_menu_pressed"]

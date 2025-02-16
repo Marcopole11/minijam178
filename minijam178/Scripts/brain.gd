@@ -3,10 +3,14 @@ extends StaticBody2D
 
 const QUESTIONTHOUGHTS = preload("res://Scenes/brainthoughts.tscn")
 const GOOFYTHOUGHTS = preload("res://Scenes/goofythoughts.tscn")
+
+signal organ_failure
+
 @export_group("rage") #all var related to the rage of the monster
 @export var max_rage:float = 100
-@export var rage_change:float = 1
+@export var rage_change:float = 4
 @export var rage_decrease: float = 10
+@export var rage_on_failure:float = 20
 var rage:float = 0
 
 @onready var brain_timer: Timer = $brainTimer
@@ -19,8 +23,11 @@ var spawnrange:int = 60
 func _process(delta: float) -> void:
 	if question_spawner.get_child_count() != 0 and rage <= 100:
 		rage += rage_change * delta
+		rage = min(rage, max_rage)
+		if rage == max_rage:
+			organ_failure.emit()
 	elif rage >= 0:
-		rage -= rage_change * delta
+		rage -= rage_decrease * delta
 	if rage >= 100 and GlobalVariables.totalrage < 1:
 		GlobalVariables.totalrage += 0.0005
 	tremble()
@@ -28,6 +35,7 @@ func _process(delta: float) -> void:
 func spawnquestion():
 	var question = QUESTIONTHOUGHTS.instantiate()
 	question.solved.connect(brain_timer.start.bind(randf() * 10 + 10))
+	question.wrong.connect(func (): rage += rage_on_failure)
 	question.position = Vector2(0,0)
 	question_spawner.add_child(question)
 	

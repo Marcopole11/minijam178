@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+signal organ_failure
+
 @export var player:CharacterBody2D
 
 @export_category("stats")
@@ -8,11 +10,6 @@ extends StaticBody2D
 @export var need_increase:float = 10
 @export var need_decrease:float = 1
 @export var need:float = 0
-
-@export_group("rage") #all var related to the rage of the monster
-@export var max_rage:float = 100
-@export var rage_change:float = 1
-@export var rage:float = 0
 
 @onready var sprite: Sprite2D = $Icon
 
@@ -29,16 +26,15 @@ func _process(delta: float) -> void:
 func needHandle(delta: float):
 	if need > 0:
 		need -= need_decrease * delta
-		if rage > 0:
-			rage -= rage_change * delta
-	elif rage < max_rage:
-		rage += rage_change * delta
-	if rage >= 100 and GlobalVariables.totalrage < 1:
-		GlobalVariables.totalrage += 0.0005
+		need = max(need, 0)
+		if need == 0:
+			organ_failure.emit()
+		
+	#GlobalVariables.totalrage += 0.0005
 		
 func _on_interactor_area_area_entered(area):
 	if area.is_in_group("punch"):
-		if player.pizzasprite.visible and need < max_rage:
+		if player.pizzasprite.visible and need < max_need:
 			$StomachAcidAudio.play()
 			need = need_increase
 			player.pizzasprite.visible = false

@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+signal organ_failure
+
 @export_category("stats")
 @export_group("needs") #all var related to needs of the monster
 @export var max_need:float = 100
@@ -22,6 +24,9 @@ func _process(delta: float) -> void:
 func needHandle(delta:float):
 	if need > 0:
 		need -= need_decrease * delta
+		need = max(0, need)
+		if need <= 0:
+			organ_failure.emit()
 		#GlobalVariables.totalrage += 0.0005 * delta
 
 func _on_interactor_area_area_entered(area: Area2D) -> void:
