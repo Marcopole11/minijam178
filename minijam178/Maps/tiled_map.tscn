@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://mkqgh8b23qw1"]
+[gd_scene load_steps=29 format=4 uid="uid://mkqgh8b23qw1"]
 
 [ext_resource type="Texture2D" uid="uid://b3n1ykbsorjek" path="res://textures/tiles/tilemapFlesh.png" id="1_gyp6d"]
 [ext_resource type="Script" path="res://Maps/MapController.gd" id="1_sri8s"]
@@ -18,6 +18,8 @@
 [ext_resource type="AudioStream" uid="uid://c2j3fh6bqbq2r" path="res://Sounds/167219__qubodup__plastic-bag-explosion.wav" id="15_snwyl"]
 [ext_resource type="PackedScene" path="res://Scenes/win_countdown_layer.tscn" id="16_hdhtm"]
 [ext_resource type="PackedScene" uid="uid://ce6b3sigusthk" path="res://Scenes/pause_menu.tscn" id="17_oflfo"]
+[ext_resource type="Texture2D" uid="uid://bta0qbsrf8sqm" path="res://textures/props/randomFlesh1.png" id="19_rlfny"]
+[ext_resource type="Texture2D" uid="uid://dnwqr5eo0l8ou" path="res://textures/props/randomFlesh2.png" id="20_ld8ib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmncv"]
 texture = ExtResource("2_2a603")
@@ -160,6 +162,14 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_ofm5g")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jc6e"]
+radius = 11.2196
+height = 162.778
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jbk44"]
+radius = 10.9723
+height = 93.9719
+
 [node name="TiledMap" type="Node2D"]
 process_mode = 3
 y_sort_enabled = true
@@ -252,6 +262,7 @@ texture = ExtResource("11_cp3ti")
 
 [node name="PointerUi" parent="." node_paths=PackedStringArray("player", "heartNode", "brainNode", "kidneyNode", "stomachNode") instance=ExtResource("9_305mt")]
 process_mode = 1
+visible = false
 player = NodePath("../Player")
 heartNode = NodePath("../Heart")
 brainNode = NodePath("../Brain")
@@ -271,6 +282,36 @@ stream = ExtResource("15_snwyl")
 bus = &"Sound"
 
 [node name="pause_menu" parent="." instance=ExtResource("17_oflfo")]
+
+[node name="RandomFlesh1" type="Sprite2D" parent="."]
+position = Vector2(1096, 46)
+texture = ExtResource("19_rlfny")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RandomFlesh1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RandomFlesh1/StaticBody2D"]
+position = Vector2(-54, 9)
+rotation = -1.42419
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_1jc6e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RandomFlesh1/StaticBody2D"]
+position = Vector2(71.0001, 36)
+rotation = -1.54636
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_jbk44")
+
+[node name="RandomFlesh2" type="Sprite2D" parent="."]
+position = Vector2(89, -33)
+texture = ExtResource("20_ld8ib")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RandomFlesh2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RandomFlesh2/StaticBody2D"]
+position = Vector2(-9, 9)
+rotation = -1.48353
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_1jc6e")
 
 [connection signal="organ_failure" from="Kidney" to="." method="_on_kidney_organ_failure"]
 [connection signal="organ_failure" from="Brain" to="." method="_on_brain_organ_failure"]
