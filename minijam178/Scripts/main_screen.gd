@@ -40,7 +40,7 @@ func zeroToOne(num:float):
 	return num
 
 func _on_btn_play_pressed():
-	get_tree().change_scene_to_file("res://mundo.tscn")
+	get_tree().change_scene_to_file("res://Maps/tiled_map.tscn")
 
 func _on_btn_options_pressed():
 	get_tree().change_scene_to_file("res://Scenes/pause_menu.tscn")

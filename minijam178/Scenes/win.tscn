@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mucxpns0njxf"]
+[gd_scene load_steps=8 format=3 uid="uid://mucxpns0njxf"]
 
 [ext_resource type="Script" path="res://Scenes/win.gd" id="1_3mw6b"]
 [ext_resource type="Texture2D" uid="uid://d266hn834qtbm" path="res://textures/screens/Victory.png" id="1_fw6p7"]
 [ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="2_bfywb"]
+[ext_resource type="Theme" uid="uid://fdunohnio6p8" path="res://winbuton.tres" id="4_o77p3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gvph6"]
 font = ExtResource("2_bfywb")
@@ -10,6 +11,30 @@ font_size = 150
 font_color = Color(0.858824, 0.858824, 0.764706, 1)
 shadow_size = 10
 shadow_color = Color(0.501961, 0.152941, 0.0862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46ab6"]
+bg_color = Color(0.231373, 0.231373, 0.231373, 0.886275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev34x"]
+bg_color = Color(0.231518, 0.231518, 0.231518, 0.396078)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.905882, 0.611765, 0.419608, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -61,9 +86,9 @@ theme_override_constants/margin_right = 250
 [node name="Button" type="Button" parent="MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.858824, 0.858824, 0.764706, 1)
-theme_override_fonts/font = ExtResource("2_bfywb")
-theme_override_font_sizes/font_size = 65
+theme = ExtResource("4_o77p3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_46ab6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ev34x")
 text = "BACK TO MENU
 "
 metadata/_edit_use_anchors_ = true
