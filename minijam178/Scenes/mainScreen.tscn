@@ -99,9 +99,9 @@ offset_bottom = 679.0
 [node name="Punch" type="TextureRect" parent="Mc"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 8.06025
+anchor_left = 7.81025
 anchor_top = -9.1429
-anchor_right = 14.0352
+anchor_right = 13.7852
 anchor_bottom = -3.7929
 offset_left = -16.4097
 offset_top = 110.716
@@ -115,9 +115,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Fotito" type="TextureRect" parent="Mc"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.314757
+anchor_left = -0.464757
 anchor_top = -19.0179
-anchor_right = 13.8852
+anchor_right = 13.7352
 anchor_bottom = -2.0929
 offset_left = -16.4097
 offset_top = 110.716
