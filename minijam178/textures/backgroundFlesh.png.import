@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orsfkxxox8a8"
-path="res://.godot/imported/among-us-veg-roll-pack.png-83e5e030377c054ad288fe95a7a36e5c.ctex"
+uid="uid://pdqg0tj176t0"
+path="res://.godot/imported/backgroundFlesh.png-63f7bdbc432c47ad8760130c36c606f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://among-us-veg-roll-pack.png"
-dest_files=["res://.godot/imported/among-us-veg-roll-pack.png-83e5e030377c054ad288fe95a7a36e5c.ctex"]
+source_file="res://textures/backgroundFlesh.png"
+dest_files=["res://.godot/imported/backgroundFlesh.png-63f7bdbc432c47ad8760130c36c606f4.ctex"]
 
 [params]
 

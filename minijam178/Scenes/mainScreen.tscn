@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb3vjsbgs3745"]
+[gd_scene load_steps=8 format=3 uid="uid://cb3vjsbgs3745"]
 
 [ext_resource type="Script" path="res://Scripts/main_screen.gd" id="1_dgpau"]
+[ext_resource type="Texture2D" uid="uid://pdqg0tj176t0" path="res://textures/backgroundFlesh.png" id="2_cs47s"]
+[ext_resource type="Shader" path="res://Scenes/mainScreen.gdshader" id="2_m8j07"]
 [ext_resource type="Texture2D" uid="uid://crko36ybi4hl2" path="res://textures/mainCharParts/FrontHead.png" id="2_nbhbn"]
 [ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="2_tv2fh"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_bsffl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mcf4"]
+shader = ExtResource("2_m8j07")
+shader_parameter/speed = 0.1
 
 [sub_resource type="LabelSettings" id="LabelSettings_36tp5"]
 font = ExtResource("2_tv2fh")
@@ -23,13 +27,12 @@ grow_vertical = 2
 script = ExtResource("1_dgpau")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_right = 0.998568
-anchor_bottom = 1.0003
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1mcf4")
+layout_mode = 1
 offset_right = -1110.35
-offset_bottom = -608.193
-scale = Vector2(28.7587, 16.2048)
-texture = SubResource("CanvasTexture_bsffl")
+texture = ExtResource("2_cs47s")
 metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
