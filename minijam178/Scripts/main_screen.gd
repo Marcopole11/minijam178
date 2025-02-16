@@ -16,9 +16,11 @@ var fPunchK:Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	MusicPlayer.stream = load("res://Sounds/4-9-18 idk.mp3 2019.mp3")
-	MusicPlayer.volume_db = -5.7
-	MusicPlayer.play()
+	var music_res = load("res://Sounds/4-9-18 idk.mp3 2019.mp3")
+	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != music_res.resource_path:
+		MusicPlayer.stream = music_res
+		MusicPlayer.volume_db = -5.7
+		MusicPlayer.play()
 	sBack = background.material;
 	sSize = sBack.get_shader_parameter("cordX")
 	fMC = fotito.get_node("Fotito")
