@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce6b3sigusthk"]
+[gd_scene load_steps=4 format=3 uid="uid://ce6b3sigusthk"]
 
 [ext_resource type="Script" path="res://Scripts/master_sound.gd" id="1_4tv6d"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="1_kwbl4"]
 
 [sub_resource type="GDScript" id="GDScript_t4wlr"]
 script/source = "extends CanvasLayer
@@ -40,6 +41,8 @@ layout_mode = 2
 
 [node name="Master sound" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kwbl4")
+theme_override_font_sizes/font_size = 30
 text = "Master Volume
 "
 
@@ -53,6 +56,8 @@ bus_name = "Master"
 
 [node name="Sound" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kwbl4")
+theme_override_font_sizes/font_size = 30
 text = "Sound Volume
 "
 
@@ -66,6 +71,8 @@ bus_name = "Sound"
 
 [node name="Music" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kwbl4")
+theme_override_font_sizes/font_size = 30
 text = "Music Volume
 "
 
@@ -87,8 +94,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
+offset_top = -87.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -96,6 +103,8 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("1_kwbl4")
+theme_override_font_sizes/font_size = 20
 text = "Quit to desktop
 "
 metadata/_edit_use_anchors_ = true
@@ -104,6 +113,8 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("1_kwbl4")
+theme_override_font_sizes/font_size = 20
 text = "Quit to menu
 "
 metadata/_edit_use_anchors_ = true
