@@ -47,9 +47,6 @@ func _physics_process(_delta):
 	velocity = direction * SPEED
 	move_and_slide()
 	
-	
-	
-	
 	if Input.is_action_just_pressed("punch"):
 		coyote_time_punch = MAX_COYOTE_TIME
 		

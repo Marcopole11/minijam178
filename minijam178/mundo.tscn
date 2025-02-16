@@ -46,9 +46,12 @@ position = Vector2(394, 134)
 [node name="Brain" parent="." instance=ExtResource("7_sdsxg")]
 position = Vector2(-295, 0)
 
-[node name="PointerUi" parent="." node_paths=PackedStringArray("player", "node2D") instance=ExtResource("8_pcb7s")]
+[node name="PointerUi" parent="." node_paths=PackedStringArray("player", "heartNode", "brainNode", "kidneyNode", "stomachNode") instance=ExtResource("8_pcb7s")]
 player = NodePath("../Player")
-node2D = NodePath("../Heart")
+heartNode = NodePath("../Heart")
+brainNode = NodePath("../Brain")
+kidneyNode = NodePath("../Kidney")
+stomachNode = NodePath("../Stomach")
 
 [node name="Particlespawner" type="Node2D" parent="."]
 script = ExtResource("9_wvypb")
