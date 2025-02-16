@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://o4yulb10i6ks"]
+[gd_scene load_steps=59 format=3 uid="uid://o4yulb10i6ks"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_g4ryt"]
 [ext_resource type="Texture2D" uid="uid://b8b0yqubfgyo" path="res://textures/mainCharParts/frontBody.png" id="2_irjh1"]
@@ -6,10 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bnu2o7pl5m2f6" path="res://textures/mainCharParts/frontLeg.png" id="4_c2pxd"]
 [ext_resource type="Texture2D" uid="uid://cdsp46rxerdai" path="res://textures/mainCharParts/handNormal.png" id="5_inov7"]
 [ext_resource type="AudioStream" uid="uid://d4innvxq3xrp4" path="res://Sounds/wind_punch.wav" id="6_0aapq"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="6_ja4l2"]
 [ext_resource type="Texture2D" uid="uid://c21dqmlbnknpo" path="res://textures/mainCharParts/FrontPunch.png" id="6_ybflk"]
 [ext_resource type="Texture2D" uid="uid://cn2t8cd4eul8r" path="res://textures/mainCharParts/BackHead.png" id="6_yjkv0"]
-[ext_resource type="Texture2D" uid="uid://cx3g1mcxuclak" path="res://textures/other/RedEffect.png" id="7_gom65"]
 [ext_resource type="Texture2D" uid="uid://dacqwj30sw4la" path="res://textures/mainCharParts/RightHead.png" id="7_w3xfg"]
 [ext_resource type="Texture2D" uid="uid://sn31l20nmr01" path="res://textures/mainCharParts/LeftHead.png" id="8_orrd1"]
 [ext_resource type="Texture2D" uid="uid://dbf3kdiuh4x8f" path="res://textures/mainCharParts/LeftPunch.png" id="9_mq0ig"]
@@ -21,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://j7wkv4lstnes" path="res://textures/props/Pizza.png" id="16_hen81"]
 [ext_resource type="AudioStream" uid="uid://xi05bgqnk13p" path="res://Sounds/wet_step_01.wav" id="17_2lpij"]
 [ext_resource type="AudioStream" uid="uid://bsa3r7m76bwfq" path="res://Sounds/wet_step_02.wav" id="18_gxfit"]
-[ext_resource type="PackedScene" uid="uid://ce6b3sigusthk" path="res://Scenes/pause_menu.tscn" id="20_qo5py"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84na2"]
 radius = 36.0
@@ -3294,10 +3291,6 @@ shape = SubResource("RectangleShape2D_5puha")
 debug_color = Color(0.768831, 0.41223, 0.460352, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("6_ja4l2")
-
-[node name="pause_menu" parent="Camera2D" instance=ExtResource("20_qo5py")]
-follow_viewport_enabled = false
 
 [node name="AtkAnims" type="AnimationPlayer" parent="."]
 libraries = {
@@ -3324,14 +3317,3 @@ texture = ExtResource("16_hen81")
 [node name="StepSoundPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -9.905
 bus = &"Sound"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_gom65")

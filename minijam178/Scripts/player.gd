@@ -13,7 +13,6 @@ const EXPLOSIONPARTICLE = preload("res://Scenes/explosion.tscn")
 @onready var pizzasprite: Sprite2D = $Pizza/Sprite2D
 @onready var AtkAnims:AnimationPlayer = $"AtkAnims"
 @onready var AnimTree:AnimationTree = $"AnimTree"
-@onready var texture_rect: TextureRect = $CanvasLayer/TextureRect
 
 var has_pizza:bool = false
 var orientation:Vector2 = Vector2.DOWN

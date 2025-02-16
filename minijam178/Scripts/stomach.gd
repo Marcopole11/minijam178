@@ -7,12 +7,11 @@ signal organ_failure
 @export_category("stats")
 @export_group("needs") #all var related to needs of the monster
 @export var max_need:float = 100 
-@export var need_increase:float = 10
 @export var need_decrease:float = 1
-@export var need:float = 0
 
 @onready var sprite: Sprite2D = $Icon
 
+var need:float = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	need_decrease = need_decrease * GlobalVariables.dificulty
@@ -36,7 +35,7 @@ func _on_interactor_area_area_entered(area):
 	if area.is_in_group("punch"):
 		if player.pizzasprite.visible and need < max_need:
 			$StomachAcidAudio.play()
-			need = need_increase
+			need = max_need
 			player.pizzasprite.visible = false
 		else:
 			$PunchAudio.play(0.1)
