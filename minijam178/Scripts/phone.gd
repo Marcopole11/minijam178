@@ -25,10 +25,10 @@ func _on_area_2d_area_entered(area):
 func _process(_delta):
 	if not pizzaTimer.is_stopped():
 		LoadingScreenBarra.value = ((pizzaTimer.wait_time - pizzaTimer.time_left )/ pizzaTimer.wait_time) * 100
-		whole_sprite.position = Vector2.RIGHT.rotated(randf() * 2 * PI) * 0.5
+		whole_sprite.position = Vector2(0, -95) + Vector2.RIGHT.rotated(randf() * 2 * PI) * 0.5
 
 func _on_pizza_timer_timeout():
-	whole_sprite.position = Vector2.ZERO
+	whole_sprite.position = Vector2(0, -95)
 	LoadingScreen.hide()
 	PizzaScreen.show()
 	calling_pizza.emit()
