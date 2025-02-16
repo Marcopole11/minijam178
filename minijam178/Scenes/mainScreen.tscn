@@ -110,7 +110,7 @@ offset_left = 538.0
 offset_top = -230.896
 offset_right = 0.192017
 offset_bottom = -0.248047
-theme_override_constants/separation = 12
+theme_override_constants/separation = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]

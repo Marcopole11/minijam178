@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://pa30r03tsky3"]
+
+[ext_resource type="Texture2D" uid="uid://b0v6abn1tuo3i" path="res://textures/screens/gameOver.png" id="1_5xfbu"]
+[ext_resource type="Script" path="res://Scenes/lose.gd" id="1_34sx2"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="2_wer36"]
+[ext_resource type="Theme" uid="uid://dtdka1tr2t784" path="res://butonfondo.tres" id="4_awjy5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eeitn"]
+font = ExtResource("2_wer36")
+font_size = 150
+font_color = Color(0.101961, 0, 0.027451, 1)
+shadow_size = 15
+shadow_color = Color(0.717647, 0.560784, 0.505882, 1)
+
+[node name="Lose" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_34sx2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5xfbu")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.308642
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "GAME LOSE"
+label_settings = SubResource("LabelSettings_eeitn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.169271
+anchor_top = 0.634259
+anchor_right = 0.37066
+anchor_bottom = 0.804012
+offset_top = -3.05176e-05
+theme = ExtResource("4_awjy5")
+text = "RETRY
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

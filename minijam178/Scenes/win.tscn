@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://mucxpns0njxf"]
+
+[ext_resource type="Script" path="res://Scenes/win.gd" id="1_3mw6b"]
+[ext_resource type="Texture2D" uid="uid://d266hn834qtbm" path="res://textures/screens/Victory.png" id="1_fw6p7"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="2_bfywb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gvph6"]
+font = ExtResource("2_bfywb")
+font_size = 150
+font_color = Color(0.858824, 0.858824, 0.764706, 1)
+shadow_size = 10
+shadow_color = Color(0.501961, 0.152941, 0.0862745, 1)
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3mw6b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fw6p7")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 83
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "I BEAT IT"
+label_settings = SubResource("LabelSettings_gvph6")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -175.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 332
+theme_override_constants/margin_right = 250
+
+[node name="Button" type="Button" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.858824, 0.858824, 0.764706, 1)
+theme_override_fonts/font = ExtResource("2_bfywb")
+theme_override_font_sizes/font_size = 65
+text = "BACK TO MENU
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MarginContainer2/Button" to="." method="_on_button_pressed"]

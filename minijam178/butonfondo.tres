@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dtdka1tr2t784"]
+
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="1_d7w3r"]
+
+[resource]
+default_font = ExtResource("1_d7w3r")
+default_font_size = 100
+Button/colors/font_color = Color(0.839216, 0.854902, 0.772549, 1)
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.94902, 1)
+Button/colors/font_pressed_color = Color(0.278431, 0.160784, 0.188235, 1)

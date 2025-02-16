@@ -19,7 +19,7 @@ config/icon="res://textures/mainCharParts/RightHead.png"
 [autoload]
 
 GlobalVariables="*res://Scripts/globalVariables.gd"
-MusicPlayer="*res://Scenes/music_player.tscn"
+MusicPlayer="res://Scenes/music_player.tscn"
 
 [display]
 
