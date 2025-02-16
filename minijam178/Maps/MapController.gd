@@ -33,6 +33,7 @@ func lose_animation(node_to_follow):
 	var tween = create_tween()
 	tween.tween_property(failure_camera, "position", node_to_follow.position, 2).from_current()
 	tween.tween_interval(0.2)
+	tween.tween_callback($AudioStreamPlayer2D.play)
 	tween.tween_property(explosion, "emitting", true, 0)
 	
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dwnjck57w0qnr"]
+[gd_scene load_steps=22 format=4 uid="uid://dwnjck57w0qnr"]
 
 [ext_resource type="Texture2D" uid="uid://b3n1ykbsorjek" path="res://textures/tiles/tilemapFlesh.png" id="1_gyp6d"]
 [ext_resource type="Script" path="res://Maps/MapController.gd" id="1_sri8s"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://be2hoy8bwscw7" path="res://pointer_ui.tscn" id="9_305mt"]
 [ext_resource type="Texture2D" uid="uid://c4yoswwl4x1e6" path="res://textures/props/PizzaSpot.png" id="11_cp3ti"]
 [ext_resource type="PackedScene" uid="uid://c3evs7co2tpf1" path="res://Scenes/explosion.tscn" id="13_7iqic"]
+[ext_resource type="AudioStream" uid="uid://c2j3fh6bqbq2r" path="res://Sounds/167219__qubodup__plastic-bag-explosion.wav" id="15_snwyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmncv"]
 texture = ExtResource("2_2a603")
@@ -246,6 +247,10 @@ enabled = false
 [node name="explosion" parent="." instance=ExtResource("13_7iqic")]
 emitting = false
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_snwyl")
+bus = &"Sound"
 
 [connection signal="organ_failure" from="Kidney" to="." method="_on_kidney_organ_failure"]
 [connection signal="organ_failure" from="Brain" to="." method="_on_brain_organ_failure"]
