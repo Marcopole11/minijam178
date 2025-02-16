@@ -64,7 +64,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_tv2fh")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 150
 text = "PLAY
 "
 

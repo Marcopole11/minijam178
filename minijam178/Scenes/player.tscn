@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://o4yulb10i6ks"]
+[gd_scene load_steps=62 format=3 uid="uid://o4yulb10i6ks"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_g4ryt"]
 [ext_resource type="Texture2D" uid="uid://b8b0yqubfgyo" path="res://textures/mainCharParts/frontBody.png" id="2_irjh1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bnu2o7pl5m2f6" path="res://textures/mainCharParts/frontLeg.png" id="4_c2pxd"]
 [ext_resource type="Texture2D" uid="uid://cdsp46rxerdai" path="res://textures/mainCharParts/handNormal.png" id="5_inov7"]
 [ext_resource type="AudioStream" uid="uid://d4innvxq3xrp4" path="res://Sounds/wind_punch.wav" id="6_0aapq"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="6_ja4l2"]
 [ext_resource type="Texture2D" uid="uid://c21dqmlbnknpo" path="res://textures/mainCharParts/FrontPunch.png" id="6_ybflk"]
 [ext_resource type="Texture2D" uid="uid://cn2t8cd4eul8r" path="res://textures/mainCharParts/BackHead.png" id="6_yjkv0"]
 [ext_resource type="Texture2D" uid="uid://cx3g1mcxuclak" path="res://textures/other/RedEffect.png" id="7_gom65"]
@@ -3294,6 +3295,7 @@ debug_color = Color(0.768831, 0.41223, 0.460352, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.1, 1.1)
+script = ExtResource("6_ja4l2")
 
 [node name="pause_menu" parent="Camera2D" instance=ExtResource("20_qo5py")]
 follow_viewport_enabled = false
