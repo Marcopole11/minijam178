@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnu2o7pl5m2f6"
-path="res://.godot/imported/frontLeg.png-fb92e1ed44ea24a425c1b0db4f89a11d.ctex"
+uid="uid://c4yoswwl4x1e6"
+path="res://.godot/imported/PizzaSpot.png-5ed3a4e9e57bd3b559d2d253fa5987d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mainCharParts/frontLeg.png"
-dest_files=["res://.godot/imported/frontLeg.png-fb92e1ed44ea24a425c1b0db4f89a11d.ctex"]
+source_file="res://textures/props/PizzaSpot.png"
+dest_files=["res://.godot/imported/PizzaSpot.png-5ed3a4e9e57bd3b559d2d253fa5987d2.ctex"]
 
 [params]
 

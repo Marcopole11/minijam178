@@ -25,25 +25,27 @@ extends StaticBody2D
 func _ready() -> void:
 	need_decrease = need_decrease * GlobalVariables.dificulty
 	need = max_need
+	need_bar.max_value = max_need
+	rage_bar.max_value = max_rage
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	need_bar.value = need
 	rage_bar.value = rage
-	needHandle()
+	needHandle(delta)
 	
-func needHandle():
+func needHandle(delta:float):
 	if need > 0:
-		need -= need_decrease
+		need -= need_decrease * delta
 		if rage > 0:
-			rage -= rage_change
+			rage -= rage_change * delta
 	elif rage < max_rage:
-		rage += rage_change
+		rage += rage_change * delta
 	if rage >= 100 and GlobalVariables.totalrage < 1:
-		GlobalVariables.totalrage += 0.0005
+		GlobalVariables.totalrage += 0.0005 * delta
 
 func _on_interactor_area_area_entered(area: Area2D) -> void:
+	$CrunchyPunchPlayer.play()
 	if area.is_in_group("punch") and need < max_need:
 		need += need_increase
-		$CrunchyPunchPlayer.play()
-		
+		need = min(max_need, need)

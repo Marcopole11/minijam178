@@ -40,8 +40,12 @@ func needHandle():
 		rage += rage_change
 	if rage >= 100 and GlobalVariables.totalrage < 1:
 		GlobalVariables.totalrage += 0.0005
-		print(GlobalVariables.totalrage)
+		
 func _on_interactor_area_area_entered(area):
-	if area.is_in_group("punch") and player.pizzasprite.visible and need < max_rage:
-		need = need_increase
-		player.pizzasprite.visible = false
+	if area.is_in_group("punch"):
+		if player.pizzasprite.visible and need < max_rage:
+			$StomachAcidAudio.play()
+			need = need_increase
+			player.pizzasprite.visible = false
+		else:
+			$PunchAudio.play(0.1)
