@@ -71,10 +71,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dgpau")
-fotitoMove = 30.0
-fotitoPunchMove = 50.0
 background = NodePath("TextureRect")
 fotito = NodePath("Mc")
+fotitoMove = 30.0
+fotitoPunchMove = 50.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1

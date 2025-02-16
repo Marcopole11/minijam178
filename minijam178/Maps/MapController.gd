@@ -11,6 +11,7 @@ extends Node2D
 
 func _ready():
 	MusicPlayer.stream = load("res://Sounds/chill-drum-loop-6887.mp3")
+	MusicPlayer.volume_db = -5.7
 	MusicPlayer.play()
 
 func _on_kidney_organ_failure() -> void:
