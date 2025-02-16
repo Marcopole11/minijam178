@@ -3310,7 +3310,7 @@ parameters/Walk/blend_position = Vector2(-0.0392491, -0.0854701)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pizza"]
 visible = false
-position = Vector2(-12, 4)
+position = Vector2(10, 5)
 scale = Vector2(1, 1.038)
 texture = ExtResource("16_hen81")
 
