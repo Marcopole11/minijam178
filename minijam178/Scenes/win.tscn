@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/win.gd" id="1_3mw6b"]
 [ext_resource type="Texture2D" uid="uid://d266hn834qtbm" path="res://textures/screens/Victory.png" id="1_fw6p7"]
 [ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="2_bfywb"]
-[ext_resource type="Theme" uid="uid://fdunohnio6p8" path="res://winbuton.tres" id="4_o77p3"]
+[ext_resource type="Theme" path="res://winbuton.tres" id="4_o77p3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gvph6"]
 font = ExtResource("2_bfywb")
@@ -67,7 +67,7 @@ theme_override_constants/margin_left = 83
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "I BEAT IT"
+text = "GAME BEATEN"
 label_settings = SubResource("LabelSettings_gvph6")
 metadata/_edit_use_anchors_ = true
 
