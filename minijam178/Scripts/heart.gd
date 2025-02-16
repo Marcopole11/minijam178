@@ -9,7 +9,7 @@ signal organ_failure
 @export var need_decrease:float = 1
 @export var need:float = 0
 
-@onready var sprite: Sprite2D = $Icon
+@export var sprite: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
