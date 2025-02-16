@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_g4ryt"]
 [ext_resource type="Texture2D" uid="uid://b8b0yqubfgyo" path="res://textures/mainCharParts/frontBody.png" id="2_irjh1"]
 [ext_resource type="Texture2D" uid="uid://crko36ybi4hl2" path="res://textures/mainCharParts/FrontHead.png" id="3_5jkvs"]
-[ext_resource type="Texture2D" uid="uid://bnu2o7pl5m2f6" path="res://textures/mainCharParts/frontLeg.png" id="4_c2pxd"]
+[ext_resource type="Texture2D" uid="uid://bnu2o7pl5m2f6" path="res://textures/mainCharParts/FrontLeg.png" id="4_c2pxd"]
 [ext_resource type="Texture2D" uid="uid://cdsp46rxerdai" path="res://textures/mainCharParts/handNormal.png" id="5_inov7"]
 [ext_resource type="AudioStream" uid="uid://d4innvxq3xrp4" path="res://Sounds/wind_punch.wav" id="6_0aapq"]
 [ext_resource type="Texture2D" uid="uid://c21dqmlbnknpo" path="res://textures/mainCharParts/FrontPunch.png" id="6_ybflk"]
@@ -3310,7 +3310,7 @@ parameters/Walk/blend_position = Vector2(-0.0392491, -0.0854701)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pizza"]
 visible = false
-position = Vector2(-49, -34)
+position = Vector2(-12, 4)
 scale = Vector2(1, 1.038)
 texture = ExtResource("16_hen81")
 

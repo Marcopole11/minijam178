@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 func spawnrock():
 	var rock = KIDNEY_ROCK.instantiate()
 	rock.position = spawner.position + Vector2(randi_range(-spawnrage,spawnrage),randi_range(-spawnrage,spawnrage))
+	rock.rotation = deg_to_rad(randi_range(0,359))
 	spawner.add_child(rock)
 
 func _on_spawncd_timeout() -> void:
