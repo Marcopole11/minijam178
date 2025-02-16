@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://j7wkv4lstnes" path="res://textures/props/Pizza.png" id="16_hen81"]
 [ext_resource type="AudioStream" uid="uid://xi05bgqnk13p" path="res://Sounds/wet_step_01.wav" id="17_2lpij"]
 [ext_resource type="AudioStream" uid="uid://bsa3r7m76bwfq" path="res://Sounds/wet_step_02.wav" id="18_gxfit"]
-[ext_resource type="PackedScene" uid="uid://cj1f2m5qhc71g" path="res://Scenes/pause_menu.tscn" id="20_qo5py"]
+[ext_resource type="PackedScene" uid="uid://ce6b3sigusthk" path="res://Scenes/pause_menu.tscn" id="20_qo5py"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84na2"]
 radius = 36.0

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const MAX_COYOTE_TIME = 0.2
+
 @export var pizzaguy:StaticBody2D
 
 @export var SPEED = 300.0
@@ -18,6 +20,7 @@ var has_pizza:bool = false
 @export var attacking:bool = false
 @export var attack_resseteable = false
 var orientation:Vector2 = Vector2.DOWN
+var coyote_time_punch = 0
 
 
 func _ready() -> void:
@@ -45,11 +48,17 @@ func _physics_process(_delta):
 	
 	
 	
-	if Input.is_action_just_pressed("punch") and (not attacking or attack_resseteable):
+	if Input.is_action_just_pressed("punch"):
+		coyote_time_punch = MAX_COYOTE_TIME
+		
+	if coyote_time_punch > 0 and (not attacking or attack_resseteable):
+		coyote_time_punch = 0
 		AnimTree.set("parameters/Attack/blend_position", orientation)
 		AnimTree.set("parameters/conditions/attack", true)
 		AnimTree.get("parameters/playback").start("Attack", true)
-		
+	elif coyote_time_punch > 0:
+		coyote_time_punch -= _delta
+
 	if velocity != Vector2.ZERO:
 		AnimTree.set("parameters/Idle/blend_position", orientation)
 		AnimTree.set("parameters/Walk/blend_position", orientation)

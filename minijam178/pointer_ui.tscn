@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://be2hoy8bwscw7"]
+
+[ext_resource type="Script" path="res://heart_pointer.gd" id="1_d3xm7"]
+[ext_resource type="Texture2D" uid="uid://cxr8e35mqevve" path="res://textures/other/pointer.png" id="2_o20dx"]
+
+[node name="PointerUi" type="CanvasLayer"]
+script = ExtResource("1_d3xm7")
+
+[node name="HeartPointer" type="CenterContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.0555556
+anchor_bottom = 0.0987654
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HeartPointer"]
+layout_mode = 2
+texture = ExtResource("2_o20dx")

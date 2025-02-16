@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj1f2m5qhc71g"]
+[gd_scene load_steps=3 format=3 uid="uid://ce6b3sigusthk"]
 
-[ext_resource type="Script" path="res://Scenes/master_sound.gd" id="1_4tv6d"]
+[ext_resource type="Script" path="res://Scripts/master_sound.gd" id="1_4tv6d"]
 
 [sub_resource type="GDScript" id="GDScript_t4wlr"]
 script/source = "extends CanvasLayer
@@ -16,6 +16,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
+layer = 10
 visible = false
 follow_viewport_enabled = true
 script = SubResource("GDScript_t4wlr")
@@ -36,7 +37,7 @@ layout_mode = 2
 
 [node name="Master sound" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Master sound
+text = "Master Volume
 "
 
 [node name="slider_vol_master" type="HSlider" parent="MarginContainer/VBoxContainer"]
@@ -49,7 +50,7 @@ bus_name = "Master"
 
 [node name="Sound" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Master sound
+text = "Sound Volume
 "
 
 [node name="slider_vol_master2" type="HSlider" parent="MarginContainer/VBoxContainer"]
@@ -62,7 +63,7 @@ bus_name = "Sound"
 
 [node name="Music" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Master sound
+text = "Music Volume
 "
 
 [node name="slider_vol_master3" type="HSlider" parent="MarginContainer/VBoxContainer"]
