@@ -39,8 +39,8 @@ func needHandle():
 			rage -= rage_change
 	elif rage < max_rage:
 		rage += rage_change
-	if rage >= 100 and GlobalVariables.totalrage < 100:
-		GlobalVariables.totalrage += 0.01
+	if rage >= 100 and GlobalVariables.totalrage < 1:
+		GlobalVariables.totalrage += 0.0005
 
 func _on_interactor_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("punch") and need < max_need:

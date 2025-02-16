@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const MAX_COYOTE_TIME = 0.2
+const EXPLOSIONPARTICLE = preload("res://Scenes/explosion.tscn")
 
 @export var pizzaguy:StaticBody2D
 
@@ -8,7 +9,7 @@ const MAX_COYOTE_TIME = 0.2
 
 
 @onready var punch: Area2D = $PunchArea2D
-
+@onready var camera_2d: Camera2D = $Camera2D
 @onready var pizzasprite: Sprite2D = $Pizza/Sprite2D
 @onready var AtkAnims:AnimationPlayer = $"AtkAnims"
 @onready var AnimTree:AnimationTree = $"AnimTree"
@@ -21,6 +22,7 @@ var has_pizza:bool = false
 @export var attack_resseteable = false
 var orientation:Vector2 = Vector2.DOWN
 var coyote_time_punch = 0
+
 
 
 func _ready() -> void:
@@ -80,6 +82,13 @@ func _on_pizza_delivered():
 	pizzasprite.visible = true
 
 func _process(delta: float) -> void:
-	if GlobalVariables.totalrage <= 100:
-		#texture_rect.modulate.a = GlobalVariables.totalrage
+	if GlobalVariables.totalrage >= 0:
+		texture_rect.visible = true
+	else:
+		texture_rect.visible = false
+	if GlobalVariables.totalrage <= 1:
+		texture_rect.modulate.a = GlobalVariables.totalrage
+		camera_2d.shake_camera(GlobalVariables.totalrage * 5,0.01)
 		pass
+		
+	
