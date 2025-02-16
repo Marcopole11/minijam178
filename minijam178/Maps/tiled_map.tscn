@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c4yoswwl4x1e6" path="res://textures/props/PizzaSpot.png" id="11_cp3ti"]
 [ext_resource type="PackedScene" uid="uid://c3evs7co2tpf1" path="res://Scenes/explosion.tscn" id="13_7iqic"]
 [ext_resource type="AudioStream" uid="uid://c2j3fh6bqbq2r" path="res://Sounds/167219__qubodup__plastic-bag-explosion.wav" id="15_snwyl"]
-[ext_resource type="PackedScene" uid="uid://bxfe26kiikm5m" path="res://Scenes/win_countdown_layer.tscn" id="16_hdhtm"]
+[ext_resource type="PackedScene" path="res://Scenes/win_countdown_layer.tscn" id="16_hdhtm"]
 [ext_resource type="PackedScene" uid="uid://ce6b3sigusthk" path="res://Scenes/pause_menu.tscn" id="17_oflfo"]
 [ext_resource type="Texture2D" uid="uid://bta0qbsrf8sqm" path="res://textures/props/randomFlesh1.png" id="19_rlfny"]
 [ext_resource type="Texture2D" uid="uid://dnwqr5eo0l8ou" path="res://textures/props/randomFlesh2.png" id="20_ld8ib"]
