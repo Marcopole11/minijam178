@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dkoo3tjtlpfuy" path="res://textures/screens/CoverBg.png" id="3_kbkte"]
 [ext_resource type="Texture2D" uid="uid://b4gni1x4fx82w" path="res://textures/screens/CoverPunch.png" id="4_jkopm"]
 [ext_resource type="Texture2D" uid="uid://dq5jaehmltx0p" path="res://textures/screens/CoverMC.png" id="5_gdair"]
-[ext_resource type="Theme" uid="uid://bk7te38f0oh6u" path="res://botonMainScreen.tres" id="7_lak7w"]
+[ext_resource type="Theme" path="res://botonMainScreen.tres" id="7_lak7w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mcf4"]
 shader = ExtResource("2_m8j07")
