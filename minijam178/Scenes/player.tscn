@@ -3294,7 +3294,6 @@ shape = SubResource("RectangleShape2D_5puha")
 debug_color = Color(0.768831, 0.41223, 0.460352, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.1, 1.1)
 script = ExtResource("6_ja4l2")
 
 [node name="pause_menu" parent="Camera2D" instance=ExtResource("20_qo5py")]
