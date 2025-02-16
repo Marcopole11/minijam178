@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://o4yulb10i6ks"]
+[gd_scene load_steps=61 format=3 uid="uid://o4yulb10i6ks"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_g4ryt"]
 [ext_resource type="Texture2D" uid="uid://b8b0yqubfgyo" path="res://textures/mainCharParts/frontBody.png" id="2_irjh1"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d4innvxq3xrp4" path="res://Sounds/wind_punch.wav" id="6_0aapq"]
 [ext_resource type="Texture2D" uid="uid://c21dqmlbnknpo" path="res://textures/mainCharParts/FrontPunch.png" id="6_ybflk"]
 [ext_resource type="Texture2D" uid="uid://cn2t8cd4eul8r" path="res://textures/mainCharParts/BackHead.png" id="6_yjkv0"]
+[ext_resource type="Texture2D" uid="uid://cx3g1mcxuclak" path="res://textures/other/RedEffect.png" id="7_gom65"]
 [ext_resource type="Texture2D" uid="uid://dacqwj30sw4la" path="res://textures/mainCharParts/RightHead.png" id="7_w3xfg"]
 [ext_resource type="Texture2D" uid="uid://sn31l20nmr01" path="res://textures/mainCharParts/LeftHead.png" id="8_orrd1"]
 [ext_resource type="Texture2D" uid="uid://dbf3kdiuh4x8f" path="res://textures/mainCharParts/LeftPunch.png" id="9_mq0ig"]
@@ -3322,3 +3323,13 @@ texture = ExtResource("16_hen81")
 [node name="StepSoundPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -9.905
 bus = &"Sound"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_gom65")

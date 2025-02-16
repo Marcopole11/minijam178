@@ -10,6 +10,8 @@ extends CharacterBody2D
 @onready var pizzasprite: Sprite2D = $Pizza/Sprite2D
 @onready var AtkAnims:AnimationPlayer = $"AtkAnims"
 @onready var AnimTree:AnimationTree = $"AnimTree"
+@onready var texture_rect: TextureRect = $CanvasLayer/TextureRect
+
 
 
 var has_pizza:bool = false
@@ -40,6 +42,9 @@ func _physics_process(_delta):
 	velocity = direction * SPEED
 	move_and_slide()
 	
+	
+	
+	
 	if Input.is_action_just_pressed("punch") and (not attacking or attack_resseteable):
 		AnimTree.set("parameters/Attack/blend_position", orientation)
 		AnimTree.set("parameters/conditions/attack", true)
@@ -64,4 +69,8 @@ func endAttack():
 	
 func _on_pizza_delivered():
 	pizzasprite.visible = true
-	
+
+func _process(delta: float) -> void:
+	if GlobalVariables.totalrage <= 100:
+		#texture_rect.modulate.a = GlobalVariables.totalrage
+		pass
