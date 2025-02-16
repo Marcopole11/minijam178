@@ -9,6 +9,9 @@ extends Node2D
 @onready var pointer_ui: CanvasLayer = $PointerUi
 @onready var explosion: GPUParticles2D = $explosion
 
+func _ready():
+	MusicPlayer.stream = load("res://Sounds/chill-drum-loop-6887.mp3")
+	MusicPlayer.play()
 
 func _on_kidney_organ_failure() -> void:
 	lose_animation(kidney)

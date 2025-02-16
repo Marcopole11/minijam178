@@ -1,10 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://4qrtqpvlo86j"]
-
-[ext_resource type="AudioStream" uid="uid://dvgmc3owrgt1k" path="res://Sounds/4-9-18 idk.mp3 2019.mp3" id="1_ab28t"]
+[gd_scene format=3 uid="uid://4qrtqpvlo86j"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 process_mode = 3
-stream = ExtResource("1_ab28t")
 volume_db = -5.701
-autoplay = true
 bus = &"Music"

@@ -3,7 +3,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	MusicPlayer.stream = load("res://Sounds/game-over-284367.mp3")
+	MusicPlayer.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
