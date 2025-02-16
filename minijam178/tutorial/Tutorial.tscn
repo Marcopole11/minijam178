@@ -105,6 +105,42 @@ text = "Survive for 3 minutes, and you win!"
 label_settings = SubResource("LabelSettings_f47gi")
 horizontal_alignment = 1
 
+[node name="ControlSlider" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ControlSlider"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ControlSlider/VBoxContainer"]
+layout_mode = 2
+text = "_GUT PUNCH_"
+label_settings = SubResource("LabelSettings_pqhoo")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/ControlSlider/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "movement:      WASD  Left joystick  dpad"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/ControlSlider/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "PUNCH: SPACE BAR - L CLICK MOUSE - X (PS) - A (XBOX) - B (NINTENDO)"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/PanelContainer/ControlSlider/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "PAUSE: ESC Key - START button"
+label_settings = SubResource("LabelSettings_f47gi")
+horizontal_alignment = 1
+
 [node name="KidneySlide" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
 visible = false
 layout_mode = 2
