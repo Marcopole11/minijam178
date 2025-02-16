@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cb3vjsbgs3745"]
+[gd_scene load_steps=16 format=3 uid="uid://cb3vjsbgs3745"]
 
 [ext_resource type="Script" path="res://Scripts/main_screen.gd" id="1_dgpau"]
 [ext_resource type="Shader" path="res://Scenes/mainScreen.gdshader" id="2_m8j07"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dkoo3tjtlpfuy" path="res://textures/screens/CoverBg.png" id="3_kbkte"]
 [ext_resource type="Texture2D" uid="uid://b4gni1x4fx82w" path="res://textures/screens/CoverPunch.png" id="4_jkopm"]
 [ext_resource type="Texture2D" uid="uid://dq5jaehmltx0p" path="res://textures/screens/CoverMC.png" id="5_gdair"]
+[ext_resource type="Theme" uid="uid://bk7te38f0oh6u" path="res://botonMainScreen.tres" id="7_lak7w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1mcf4"]
 shader = ExtResource("2_m8j07")
@@ -19,6 +20,48 @@ font_size = 110
 font_color = Color(0.929412, 0.027451, 0, 0.564706)
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxa5w"]
+bg_color = Color(0.815686, 0.188235, 0.25098, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghoo5"]
+bg_color = Color(0.984314, 0.533333, 0.462745, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bpl3"]
+bg_color = Color(0.815686, 0.188235, 0.25098, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ti6f6"]
+bg_color = Color(0.984314, 0.533333, 0.462745, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ch4e"]
+bg_color = Color(0.815686, 0.188235, 0.25098, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8rwq"]
+bg_color = Color(0.984314, 0.533333, 0.462745, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="MainScreen" type="Control" node_paths=PackedStringArray("background", "fotito")]
 layout_mode = 3
@@ -102,14 +145,12 @@ vertical_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.000868056
-anchor_top = 0.952
-anchor_right = 0.979
-anchor_bottom = 0.952543
-offset_left = 538.0
-offset_top = -230.896
-offset_right = 0.192017
-offset_bottom = -0.248047
+anchor_left = 0.506944
+anchor_top = 0.595679
+anchor_right = 0.979167
+anchor_bottom = 0.983025
+offset_top = 3.05176e-05
+offset_bottom = -10.0002
 theme_override_constants/separation = 6
 metadata/_edit_use_anchors_ = true
 
@@ -127,21 +168,26 @@ theme_override_constants/margin_left = 50
 
 [node name="BTN_Exit" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_tv2fh")
-theme_override_font_sizes/font_size = 43
+theme = ExtResource("7_lak7w")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_cxa5w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghoo5")
 text = "EXIT"
 
 [node name="BTN_Options" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_tv2fh")
-theme_override_font_sizes/font_size = 42
+theme = ExtResource("7_lak7w")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_0bpl3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ti6f6")
 text = "OPTIONS"
 
 [node name="BTN_Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_tv2fh")
-theme_override_font_sizes/font_size = 100
+theme = ExtResource("7_lak7w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ch4e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8rwq")
 text = "PLAY
 "
 

@@ -1,6 +1,7 @@
 extends Node2D
 
 signal solved
+signal wrong
 
 @onready var question: Label = $Container/MarginContainer/Question
 @onready var answer_1: Label = $Container/Answer1/MarginContainer2/MarginContainer/Label
@@ -59,15 +60,21 @@ func _on_answer_1_area_entered(area: Area2D) -> void:
 		if answer_1.text == str(rightanswer):
 			solved.emit()
 			queue_free()
+		else:
+			wrong.emit()
 
 func _on_answer_2_area_entered(area: Area2D) -> void:
 	if area.is_in_group("punch"):
 		if answer_2.text == str(rightanswer):
 			solved.emit()
 			queue_free()
+		else:
+			wrong.emit()
 
 func _on_answer_3_area_entered(area: Area2D) -> void:
 	if area.is_in_group("punch"):
 		if answer_3.text == str(rightanswer):
 			solved.emit()
 			queue_free()
+		else:
+			wrong.emit()

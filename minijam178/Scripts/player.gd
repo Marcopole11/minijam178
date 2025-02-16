@@ -4,9 +4,9 @@ const MAX_COYOTE_TIME = 0.2
 const EXPLOSIONPARTICLE = preload("res://Scenes/explosion.tscn")
 
 @export var pizzaguy:StaticBody2D
-
 @export var SPEED = 300.0
-
+@export var attacking:bool = false
+@export var attack_resseteable = false
 
 @onready var punch: Area2D = $PunchArea2D
 @onready var camera_2d: Camera2D = $Camera2D
@@ -15,20 +15,13 @@ const EXPLOSIONPARTICLE = preload("res://Scenes/explosion.tscn")
 @onready var AnimTree:AnimationTree = $"AnimTree"
 @onready var texture_rect: TextureRect = $CanvasLayer/TextureRect
 
-
-
 var has_pizza:bool = false
-@export var attacking:bool = false
-@export var attack_resseteable = false
 var orientation:Vector2 = Vector2.DOWN
 var coyote_time_punch = 0
-
-
 
 func _ready() -> void:
 	if pizzaguy:
 		pizzaguy.pizza_delivered.connect(_on_pizza_delivered)
-
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
@@ -64,7 +57,6 @@ func _physics_process(_delta):
 		AnimTree.set("parameters/conditions/moving", true)
 	else:
 		AnimTree.set("parameters/conditions/moving", false)
-	
 
 func startAttack():
 	punch.set_collision_layer_value(1,true)
@@ -77,15 +69,3 @@ func endAttack():
 	
 func _on_pizza_delivered():
 	pizzasprite.visible = true
-
-#func _process(delta: float) -> void:
-	#if GlobalVariables.totalrage >= 0:
-		#texture_rect.visible = true
-	#else:
-		#texture_rect.visible = false
-	#if GlobalVariables.totalrage <= 1:
-		#texture_rect.modulate.a = GlobalVariables.totalrage
-		#camera_2d.shake_camera(GlobalVariables.totalrage * 5,0.01)
-		#pass
-		
-	
