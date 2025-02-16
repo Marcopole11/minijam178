@@ -10,6 +10,9 @@ signal organ_failure
 @export var need:float = 0
 
 @export var sprite: Node2D
+@export var heartAnim: AnimationTree
+
+var ouch = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +21,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(ouch>0): ouch -=1
+	if(ouch==0):
+		heartAnim.set("parameters/conditions/hit", false)
+		
+	
 	needHandle(delta)
 	tremble()
 	
@@ -34,6 +42,8 @@ func _on_interactor_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("punch") and need < max_need:
 		need += need_increase
 		need = min(max_need, need)
+		heartAnim.set("parameters/conditions/hit", true)
+		ouch = 10
 		
 func tremble():
 	var tremble_meter = 1 - min(need/max_need, 0.85) / 0.85

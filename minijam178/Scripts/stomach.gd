@@ -11,7 +11,10 @@ signal organ_failure
 @export var need_decrease:float = 1
 @export var need:float = 0
 
-@onready var sprite: Sprite2D = $Icon
+@export var sprite: Node2D
+@export var stomachAnim: AnimationTree
+
+var thanks = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +23,10 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(thanks>0): thanks -=1
+	if(thanks==0):
+		stomachAnim.set("parameters/conditions/eat", false)
+		
 	needHandle(delta)
 	tremble()
 	
@@ -38,6 +45,8 @@ func _on_interactor_area_area_entered(area):
 			$StomachAcidAudio.play()
 			need = need_increase
 			player.pizzasprite.visible = false
+			stomachAnim.set("parameters/conditions/eat", true)
+			thanks = 10
 		else:
 			$PunchAudio.play(0.1)
 

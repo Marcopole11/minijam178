@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buraukd85vvlu"]
+[gd_scene load_steps=16 format=3 uid="uid://buraukd85vvlu"]
 
 [ext_resource type="Script" path="res://Scripts/heart.gd" id="1_7mgdm"]
 [ext_resource type="Texture2D" uid="uid://1ahf78l8qilw" path="res://textures/stations/Heart.png" id="4_wko3q"]
@@ -38,6 +38,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Skeleton2D/arterias/mini:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/Skeleton2D/arterias/heart:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_no4lp"]
 length = 0.001
@@ -65,18 +89,120 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Skeleton2D/arterias/mini:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/Skeleton2D/arterias/heart:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_acpbn"]
+resource_name = "punched"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Skeleton2D/arterias/heart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.8), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Skeleton2D/arterias/mini:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 1.2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Skeleton2D/arterias/heart:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [0.0, -0.20944, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/Skeleton2D/arterias/mini:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.0872665]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1it58"]
 _data = {
 "RESET": SubResource("Animation_no4lp"),
-"palpita": SubResource("Animation_x7nfb")
+"palpita": SubResource("Animation_x7nfb"),
+"punched": SubResource("Animation_acpbn")
 }
 
-[node name="Heart" type="StaticBody2D" node_paths=PackedStringArray("sprite")]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xfo8m"]
+animation = &"palpita"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wmpy8"]
+animation = &"punched"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krt4e"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j11eg"]
+advance_mode = 2
+advance_condition = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_om3w1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xvk0o"]
+states/palpita/node = SubResource("AnimationNodeAnimation_xfo8m")
+states/palpita/position = Vector2(368, 54)
+states/punched/node = SubResource("AnimationNodeAnimation_wmpy8")
+states/punched/position = Vector2(352, 145)
+transitions = ["Start", "palpita", SubResource("AnimationNodeStateMachineTransition_krt4e"), "palpita", "punched", SubResource("AnimationNodeStateMachineTransition_j11eg"), "punched", "palpita", SubResource("AnimationNodeStateMachineTransition_om3w1")]
+
+[node name="Heart" type="StaticBody2D" node_paths=PackedStringArray("sprite", "heartAnim")]
 position = Vector2(0, -1)
 script = ExtResource("1_7mgdm")
 need_decrease = 0.1
 sprite = NodePath("Visual")
+heartAnim = NodePath("AnimationTree")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -141,5 +267,11 @@ libraries = {
 "": SubResource("AnimationLibrary_1it58")
 }
 autoplay = "palpita"
+blend_times = [&"punched", &"palpita", 1.0]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_xvk0o")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/hit = false
 
 [connection signal="area_entered" from="Interactor_Area" to="." method="_on_interactor_area_area_entered"]
