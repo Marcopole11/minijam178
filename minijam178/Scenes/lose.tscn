@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://pa30r03tsky3"]
+[gd_scene load_steps=9 format=3 uid="uid://pa30r03tsky3"]
 
 [ext_resource type="Texture2D" uid="uid://b0v6abn1tuo3i" path="res://textures/screens/gameOver.png" id="1_5xfbu"]
 [ext_resource type="Script" path="res://Scenes/lose.gd" id="1_34sx2"]
@@ -11,6 +11,42 @@ font_size = 150
 font_color = Color(0.101961, 0, 0.027451, 1)
 shadow_size = 15
 shadow_color = Color(0.717647, 0.560784, 0.505882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33vyh"]
+bg_color = Color(0.356863, 0.235294, 0.262745, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj756"]
+bg_color = Color(0.101961, 0, 0.027451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.278431, 0.160784, 0.188235, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ist57"]
+bg_color = Color(0.101961, 0, 0.027451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.72549, 0.564706, 0.592157, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Lose" type="Control"]
 layout_mode = 3
@@ -48,15 +84,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-anchor_left = 0.169271
-anchor_top = 0.634259
-anchor_right = 0.37066
-anchor_bottom = 0.804012
-offset_top = -3.05176e-05
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.289063
+anchor_top = 0.785494
+anchor_right = 0.519097
+anchor_bottom = 0.949074
+offset_top = 3.05176e-05
 theme = ExtResource("4_awjy5")
-text = "RETRY
-"
+theme_override_styles/hover = SubResource("StyleBoxFlat_33vyh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fj756")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ist57")
+text = "RETRY"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
