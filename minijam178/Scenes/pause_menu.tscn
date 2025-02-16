@@ -22,8 +22,33 @@ func _unhandled_input(event: InputEvent) -> void:
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
 layer = 10
+visible = false
 follow_viewport_enabled = true
 script = SubResource("GDScript_t4wlr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.978327, 0.446332, 0.411306, 0.666667)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.205247
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_kwbl4")
+theme_override_font_sizes/font_size = 75
+text = "PAUSED"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -90,21 +115,21 @@ size_flags_vertical = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HSeparator"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -87.0
-offset_bottom = -56.0
+anchors_preset = -1
+anchor_left = 0.00105042
+anchor_top = 1.75
+anchor_right = 1.00105
+anchor_bottom = 9.5
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="button_quit" type="Button" parent="MarginContainer/VBoxContainer/HSeparator/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("1_kwbl4")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "Quit to desktop
 "
 metadata/_edit_use_anchors_ = true
@@ -114,7 +139,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("1_kwbl4")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "Quit to menu
 "
 metadata/_edit_use_anchors_ = true
