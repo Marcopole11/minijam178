@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://de68e4nabbqst"]
+[gd_scene load_steps=4 format=3 uid="uid://de68e4nabbqst"]
 
 [ext_resource type="Script" path="res://Scripts/brain.gd" id="1_2jfqv"]
 [ext_resource type="Texture2D" uid="uid://c7hwxmjrlsdfu" path="res://textures/stations/brain.png" id="2_3drms"]
+[ext_resource type="AudioStream" uid="uid://ixsnggkgcsu3" path="res://Sounds/cloud_punch.wav" id="3_pfv5c"]
 
 [node name="Brain" type="StaticBody2D"]
 script = ExtResource("1_2jfqv")
@@ -26,6 +27,9 @@ autostart = true
 
 [node name="ThoughtSpawner" type="Node2D" parent="."]
 position = Vector2(-76, -66)
+
+[node name="CloudPunchAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pfv5c")
 
 [connection signal="timeout" from="brainTimer" to="." method="_on_brain_timer_timeout"]
 [connection signal="timeout" from="Nextthought" to="." method="_on_nextthought_timeout"]

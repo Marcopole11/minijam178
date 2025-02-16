@@ -19,6 +19,7 @@ signal organ_failure
 @onready var question_spawner: Node2D = $QuestionSpawner
 @onready var thought_spawner: Node2D = $ThoughtSpawner
 @onready var sprite:Sprite2D = $Icon
+@onready var cloud_punch_audio: AudioStreamPlayer2D = $CloudPunchAudio
 
 var spawnrange:int = 60
 var rage:float = 0
@@ -38,8 +39,14 @@ func _process(delta: float) -> void:
 	
 func spawnquestion():
 	var question = QUESTIONTHOUGHTS.instantiate()
-	question.solved.connect(brain_timer.start.bind(randf_range(min_time_popup_question, max_time_popup_question)))
-	question.wrong.connect(func (): rage += rage_on_failure)
+	question.solved.connect(func ():
+		brain_timer.start(randf_range(min_time_popup_question, max_time_popup_question))
+		cloud_punch_audio.play()
+	)
+	question.wrong.connect(func ():
+		rage += rage_on_failure
+		cloud_punch_audio.play()
+	)
 	question.position = Vector2(0,0)
 	question_spawner.add_child(question)
 	

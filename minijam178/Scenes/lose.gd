@@ -4,6 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MusicPlayer.stream = load("res://Sounds/game-over-284367.mp3")
+	MusicPlayer.volume_db = -5.7
 	MusicPlayer.play()
 
 
