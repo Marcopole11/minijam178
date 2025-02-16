@@ -21,7 +21,6 @@ func _unhandled_input(event: InputEvent) -> void:
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
 layer = 10
-visible = false
 follow_viewport_enabled = true
 script = SubResource("GDScript_t4wlr")
 

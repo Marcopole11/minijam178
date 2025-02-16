@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bytxqi5g4ofgl"]
+
+[ext_resource type="PackedScene" uid="uid://ce6b3sigusthk" path="res://Scenes/pause_menu.tscn" id="1_maq5v"]
+
+[node name="configScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pause_menu" parent="." instance=ExtResource("1_maq5v")]
