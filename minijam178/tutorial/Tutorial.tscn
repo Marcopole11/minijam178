@@ -94,7 +94,7 @@ horizontal_alignment = 1
 [node name="Label3" type="Label" parent="VBoxContainer/PanelContainer/InitialSlider/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "each organ requires special care for you host to keep working"
+text = "each organ requires special care for your host to keep working"
 label_settings = SubResource("LabelSettings_f47gi")
 horizontal_alignment = 1
 
@@ -123,7 +123,7 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/ControlSlider/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "movement:      WASD  Left joystick  dpad"
+text = "movement:      WASD - Left joystick - dpad"
 label_settings = SubResource("LabelSettings_f47gi")
 horizontal_alignment = 1
 
@@ -166,7 +166,7 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/KidneySlide/VBoxContainer"]
 layout_mode = 2
-text = "Punch those kidney stones out if you way"
+text = "Punch those kidney stones out of your way"
 label_settings = SubResource("LabelSettings_f47gi")
 horizontal_alignment = 1
 
