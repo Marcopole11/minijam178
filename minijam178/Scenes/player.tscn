@@ -3327,6 +3327,7 @@ volume_db = -9.905
 bus = &"Sound"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15

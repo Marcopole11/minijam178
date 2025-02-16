@@ -1,9 +1,6 @@
 extends StaticBody2D
 
-@onready var spawner: Node2D = $Spawner
-@onready var spawncd: Timer = $Spawncd
-@onready var rage_bar: TextureProgressBar = $rage_bar
-
+const KIDNEY_ROCK = preload("res://Scenes/kidney_rock.tscn")
 
 @export_category("stats")
 @export_group("need")
@@ -13,23 +10,26 @@ extends StaticBody2D
 @export var max_rage:float = 100
 @export var rage_change:float = 1
 @export var rage:float = 0
-
-
 @export var spawnrage:int = 100
 
-const KIDNEY_ROCK = preload("res://Scenes/kidney_rock.tscn")
+@onready var spawner: Node2D = $Spawner
+@onready var spawncd: Timer = $Spawncd
+@onready var sprite: Sprite2D = $Icon
 
 func _ready() -> void:
 	spawncd.wait_time = spawncd.wait_time / GlobalVariables.dificulty
 
 func _process(delta: float) -> void:
-	rage_bar.value = rage
-	if spawner.get_child_count() >= maxrocks and rage < 100:
-		rage += rage_change
+	if spawner.get_child_count() > 0 and rage < 100:
+		rage += rage_change * delta * spawner.get_child_count()
+		rage = min(rage, max_rage)
 	elif rage > 0:
-		rage -= rage_change
+		rage -= rage_change * delta * 10
+		rage = max(rage, 0)
 	if rage >= 100 and GlobalVariables.totalrage < 1:
 		GlobalVariables.totalrage += 0.0005
+	tremble()
+		
 func spawnrock():
 	var rock = KIDNEY_ROCK.instantiate()
 	rock.position = spawner.position + Vector2(randi_range(-spawnrage,spawnrage),randi_range(-spawnrage,spawnrage))
@@ -38,3 +38,12 @@ func spawnrock():
 func _on_spawncd_timeout() -> void:
 	if spawner.get_child_count() < maxrocks:
 		spawnrock()
+		
+func tremble():
+	var tremble_meter = max(rage/max_rage - 0.15, 0) / 0.85
+	if tremble_meter > 0:
+		sprite.position = Vector2.RIGHT.rotated(randf()*2*PI) * tremble_meter * 4
+		sprite.modulate = lerp(Color.WHITE, Color.RED, tremble_meter)
+	else:
+		sprite.modulate = Color.WHITE
+		sprite.position = Vector2.ZERO

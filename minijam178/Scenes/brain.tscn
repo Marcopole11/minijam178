@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://de68e4nabbqst"]
+[gd_scene load_steps=3 format=3 uid="uid://de68e4nabbqst"]
 
 [ext_resource type="Script" path="res://Scripts/brain.gd" id="1_2jfqv"]
 [ext_resource type="Texture2D" uid="uid://c7hwxmjrlsdfu" path="res://textures/stations/brain.png" id="2_3drms"]
-[ext_resource type="Texture2D" uid="uid://cc60agepb8bb6" path="res://textures/bars/Texturastaminabg.png" id="3_rabxi"]
-[ext_resource type="Texture2D" uid="uid://bm744ypxq3y1m" path="res://textures/bars/Texturastamina.png" id="4_m44on"]
 
 [node name="Brain" type="StaticBody2D"]
 script = ExtResource("1_2jfqv")
@@ -13,21 +11,11 @@ texture = ExtResource("2_3drms")
 
 [node name="brainTimer" type="Timer" parent="."]
 wait_time = 9.0
+one_shot = true
 autostart = true
 
 [node name="QuestionSpawner" type="Node2D" parent="."]
 position = Vector2(-136, -38)
-
-[node name="rage_bar" type="TextureProgressBar" parent="."]
-offset_left = 204.0
-offset_top = -169.0
-offset_right = 368.0
-offset_bottom = 1295.0
-scale = Vector2(0.0764532, 0.116335)
-value = 30.0
-fill_mode = 3
-texture_under = ExtResource("3_rabxi")
-texture_progress = ExtResource("4_m44on")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-243, -64, -245, -52, -257, -35, -259, -20, -256, -12, -265, -2, -264, 38, -271, 99, -253, 115, -238, 115, -235, 125, -219, 134, -183, 138, -152, 125, -110, 119, -93, 108, -61, 114, -44, 111, -34, 103, -20, 86, -19, 78, -11, 71, 17, 76, 50, 76, 71, 69, 91, 59, 103, 41, 108, 2, 141, 10, 171, 39, 201, 50, 228, 43, 254, 30, 269, 20, 244, 7, 229, 7, 199, 11, 174, -7, 139, -34, 90, -40, 33, -62)
@@ -37,7 +25,7 @@ wait_time = 8.0
 autostart = true
 
 [node name="ThoughtSpawner" type="Node2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(-76, -66)
 
 [connection signal="timeout" from="brainTimer" to="." method="_on_brain_timer_timeout"]
 [connection signal="timeout" from="Nextthought" to="." method="_on_nextthought_timeout"]

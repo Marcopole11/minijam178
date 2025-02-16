@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byc6xlkqcithr"]
+[gd_scene load_steps=10 format=3 uid="uid://byc6xlkqcithr"]
 
 [ext_resource type="Script" path="res://Scripts/phone.gd" id="1_nvc3l"]
 [ext_resource type="Texture2D" uid="uid://dg4cad0sccaf6" path="res://textures/stations/Smartphone.png" id="2_vqf3e"]
@@ -15,29 +15,19 @@ font_color = Color(0.976471, 0.54902, 0.321569, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="phone" type="Node2D" node_paths=PackedStringArray("call_sound")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doumi"]
+size = Vector2(112.733, 108.773)
+
+[node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource("1_nvc3l")
-call_sound = NodePath("AudioStreamPlayer2D")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-66, 0, -55, 20, -55, 31, -58, 41, -49, 58, -58, 80, -71, 99, -79, 101, -89, 115, -101, 123, -95, 129, -69, 129, -33, 124, 20, 127, 58, 123, 63, 114, 56, 105, 61, 94, 98, 77, 99, 62, 65, -7)
 
-[node name="Icon" type="Sprite2D" parent="Area2D"]
+[node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("2_vqf3e")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
-visible = false
-polygon = PackedVector2Array(-66, 0, -55, 20, -55, 31, -58, 41, -49, 58, -58, 80, -71, 99, -79, 101, -89, 115, -101, 123, -95, 129, -69, 129, -33, 124, 20, 127, 58, 123, 63, 114, 56, 105, 61, 94, 98, 77, 99, 62, 65, -7)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_l0i3a")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-66, 0, -55, 20, -55, 31, -58, 41, -49, 58, -58, 80, -71, 99, -79, 101, -89, 115, -101, 123, -95, 129, -69, 129, -33, 124, 20, 127, 58, 123, 63, 114, 56, 105, 61, 94, 98, 77, 99, 62, 65, -7)
-
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Icon"]
 show_behind_parent = true
 offset_left = -88.0
 offset_top = -62.0
@@ -48,8 +38,7 @@ scale = Vector2(2.57195, 4.48935)
 texture = ExtResource("4_ef2qd")
 expand_mode = 1
 
-[node name="BasicScreen" type="Control" parent="."]
-visible = false
+[node name="BasicScreen" type="Control" parent="Icon"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -9.22962
@@ -57,7 +46,7 @@ offset_top = 59.8886
 offset_right = 99.7704
 offset_bottom = 59.8886
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BasicScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Icon/BasicScreen"]
 layout_mode = 0
 offset_left = -50.7704
 offset_top = -95.8886
@@ -66,7 +55,7 @@ offset_bottom = 55.1114
 rotation = -0.486947
 scale = Vector2(0.7, 0.7)
 
-[node name="Label" type="Label" parent="BasicScreen/VBoxContainer"]
+[node name="Label" type="Label" parent="Icon/BasicScreen/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_6r4lt")
 text = "BUY PIZZA 
@@ -75,11 +64,11 @@ label_settings = SubResource("LabelSettings_63nnb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="BasicScreen/VBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Icon/BasicScreen/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("6_cm3p3")
 
-[node name="Label2" type="Label" parent="BasicScreen/VBoxContainer"]
+[node name="Label2" type="Label" parent="Icon/BasicScreen/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_6r4lt")
 text = "NOW"
@@ -87,7 +76,7 @@ label_settings = SubResource("LabelSettings_63nnb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LoadingScreen" type="Control" parent="."]
+[node name="LoadingScreen" type="Control" parent="Icon"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -96,7 +85,7 @@ offset_top = 47.0
 offset_right = 97.0
 offset_bottom = 47.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LoadingScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Icon/LoadingScreen"]
 layout_mode = 0
 offset_left = -50.0
 offset_top = -89.0
@@ -106,15 +95,15 @@ rotation = -0.486947
 scale = Vector2(0.7, 0.7)
 alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="LoadingScreen/VBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Icon/LoadingScreen/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("7_13kp1")
 stretch_mode = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="LoadingScreen/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="Icon/LoadingScreen/VBoxContainer"]
 layout_mode = 2
 
-[node name="PizzaScreen" type="Control" parent="."]
+[node name="PizzaScreen" type="Control" parent="Icon"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -123,7 +112,7 @@ offset_top = 59.8886
 offset_right = 99.7704
 offset_bottom = 59.8886
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PizzaScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Icon/PizzaScreen"]
 layout_mode = 0
 offset_left = -50.7704
 offset_top = -95.8886
@@ -132,11 +121,11 @@ offset_bottom = 55.1114
 rotation = -0.486947
 scale = Vector2(0.7, 0.7)
 
-[node name="TextureRect2" type="TextureRect" parent="PizzaScreen/VBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Icon/PizzaScreen/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("6_cm3p3")
 
-[node name="Label2" type="Label" parent="PizzaScreen/VBoxContainer"]
+[node name="Label2" type="Label" parent="Icon/PizzaScreen/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_6r4lt")
 text = "TAKE IT
@@ -144,6 +133,23 @@ text = "TAKE IT
 label_settings = SubResource("LabelSettings_63nnb")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PackedVector2Array(-66, 0, -55, 20, -55, 31, -58, 41, -49, 58, -58, 80, -71, 99, -79, 101, -89, 115, -101, 123, -95, 129, -69, 129, -33, 124, 20, 127, 58, 123, 63, 114, 56, 105, 61, 94, 98, 77, 99, 62, 65, -7)
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12.4117, 23.0082)
+rotation = -0.494707
+shape = SubResource("RectangleShape2D_doumi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l0i3a")
 
 [node name="pizzaTimer" type="Timer" parent="."]
 wait_time = 5.0

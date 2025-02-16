@@ -78,14 +78,14 @@ func endAttack():
 func _on_pizza_delivered():
 	pizzasprite.visible = true
 
-func _process(delta: float) -> void:
-	if GlobalVariables.totalrage >= 0:
-		texture_rect.visible = true
-	else:
-		texture_rect.visible = false
-	if GlobalVariables.totalrage <= 1:
-		texture_rect.modulate.a = GlobalVariables.totalrage
-		camera_2d.shake_camera(GlobalVariables.totalrage * 5,0.01)
-		pass
+#func _process(delta: float) -> void:
+	#if GlobalVariables.totalrage >= 0:
+		#texture_rect.visible = true
+	#else:
+		#texture_rect.visible = false
+	#if GlobalVariables.totalrage <= 1:
+		#texture_rect.modulate.a = GlobalVariables.totalrage
+		#camera_2d.shake_camera(GlobalVariables.totalrage * 5,0.01)
+		#pass
 		
 	

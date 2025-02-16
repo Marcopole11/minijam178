@@ -1,5 +1,7 @@
 extends Node2D
 
+signal solved
+
 @onready var question: Label = $Container/MarginContainer/Question
 @onready var answer_1: Label = $Container/Answer1/MarginContainer2/MarginContainer/Label
 @onready var answer_2: Label = $Container/Answer2/MarginContainer2/MarginContainer/Label
@@ -19,9 +21,6 @@ func generate_operation():
 	var problem = str(num1)+operator+str(num2)
 	var expression = Expression.new()
 	var error = expression.parse(problem)
-	
-	
-	
 	
 	if error != OK:
 		push_error("error to solve" + problem)
@@ -58,21 +57,17 @@ func _ready() -> void:
 func _on_answer_1_area_entered(area: Area2D) -> void:
 	if area.is_in_group("punch"):
 		if answer_1.text == str(rightanswer):
-			print("right answer")
+			solved.emit()
 			queue_free()
-		else:
-			print("wrong answer")
+
 func _on_answer_2_area_entered(area: Area2D) -> void:
 	if area.is_in_group("punch"):
 		if answer_2.text == str(rightanswer):
-			print("right answer")
+			solved.emit()
 			queue_free()
-		else:
-			print("wrong answer")
+
 func _on_answer_3_area_entered(area: Area2D) -> void:
 	if area.is_in_group("punch"):
 		if answer_3.text == str(rightanswer):
-			print("right answer")
+			solved.emit()
 			queue_free()
-		else:
-			print("wrong answer")

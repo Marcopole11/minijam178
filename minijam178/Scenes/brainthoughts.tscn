@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://chpxs27om4tf6"]
+[gd_scene load_steps=5 format=3 uid="uid://dd5cu8diqs63u"]
 
 [ext_resource type="Script" path="res://Scripts/brainthoughts.gd" id="1_qk2to"]
 [ext_resource type="Texture2D" uid="uid://bg0oqa2o3llb5" path="res://textures/tiles/dialogBox.png" id="2_egncu"]
@@ -44,7 +44,8 @@ theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
 [node name="Answer1" type="Area2D" parent="Container"]
-position = Vector2(-4.11241, -88.9693)
+position = Vector2(-4.11241, 103.369)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer1"]
 position = Vector2(19.9547, 20.2842)
@@ -79,6 +80,7 @@ vertical_alignment = 1
 
 [node name="Answer2" type="Area2D" parent="Container"]
 position = Vector2(111, 44)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer2"]
 position = Vector2(15.9708, 18.9985)
@@ -113,6 +115,7 @@ vertical_alignment = 1
 
 [node name="Answer3" type="Area2D" parent="Container"]
 position = Vector2(-119.774, 44.2275)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Answer3"]
 position = Vector2(19.9547, 20.2842)

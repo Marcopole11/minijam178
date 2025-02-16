@@ -127,6 +127,9 @@ need_decrease = 2.0
 position = Vector2(-441, 282)
 scale = Vector2(-1, 1)
 player = NodePath("../Player")
+max_need = 60.0
+need_increase = 60.0
+need_decrease = 2.0
 
 [node name="phone" parent="." instance=ExtResource("7_xirk8")]
 position = Vector2(1146, -242)

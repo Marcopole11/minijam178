@@ -1,9 +1,9 @@
 extends StaticBody2D
 
 @export var phone:Node2D 
-@export var pizzaGuy_sprite:Sprite2D
 @onready var hitbox: Area2D = $Area2D
-
+@onready var pizzaGuyStandingSprite = $PizzaGuyStandingBody
+@onready var pizzaGuyHitSprite = $PizzaGuyHitBody
 
 signal pizza_delivered
 
@@ -13,14 +13,15 @@ func _ready() -> void:
 	pizza_delivered.connect(phone.pizza_taken)
 
 func _on_calling_pizza():
-	if !pizzaGuy_sprite.visible:
-		pizzaGuy_sprite.texture = load("res://textures/props/PizzaMan.png")
-		pizzaGuy_sprite.show()
+	if !pizzaGuyStandingSprite.visible:
+		pizzaGuyStandingSprite.show()
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("punch") and pizzaGuy_sprite.visible :
-		pizzaGuy_sprite.texture = load("res://textures/props/PizzaManHit.png")
+	if area.is_in_group("punch") and pizzaGuyStandingSprite.visible:
+		pizzaGuyHitSprite.show()
+		pizzaGuyStandingSprite.hide()
 		$OofPlayer.play()
 		pizza_delivered.emit()
-		await get_tree().create_timer(1.2).timeout
-		pizzaGuy_sprite.hide()
+		var tween = create_tween()
+		tween.tween_property(pizzaGuyHitSprite, "position", Vector2(25, 0), 1.2).from(Vector2.ZERO)
+		tween.tween_callback(pizzaGuyHitSprite.hide)
