@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/phone.gd" id="1_nvc3l"]
 [ext_resource type="Texture2D" uid="uid://dg4cad0sccaf6" path="res://textures/stations/Smartphone.png" id="2_vqf3e"]
 [ext_resource type="AudioStream" uid="uid://ccwfdxnqflylh" path="res://Sounds/Cartoon phone call (sound effect) [uO6G3g5UZKA].mp3" id="3_l0i3a"]
-[ext_resource type="Texture2D" uid="uid://ch4hw8yu5ko31" path="res://textures/backgroundLines.png" id="4_ef2qd"]
+[ext_resource type="Texture2D" uid="uid://tmaxtdko1d63" path="res://textures/other/backgroundLines.png" id="4_ef2qd"]
 [ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="5_6r4lt"]
 [ext_resource type="Texture2D" uid="uid://bjv7t03hcxdxb" path="res://textures/props/PizzaIcon.png" id="6_cm3p3"]
 [ext_resource type="Texture2D" uid="uid://03cg5gfo0vo0" path="res://textures/pizzaManParts/LeftHead.png" id="7_13kp1"]
