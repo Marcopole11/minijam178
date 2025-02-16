@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ce6b3sigusthk"]
+[gd_scene load_steps=10 format=3 uid="uid://ce6b3sigusthk"]
 
 [ext_resource type="Script" path="res://Scripts/master_sound.gd" id="1_4tv6d"]
 [ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="1_kwbl4"]
 [ext_resource type="Texture2D" uid="uid://bquqfpw4wvjp3" path="res://textures/other/PorousBar.png" id="2_0rq8m"]
+[ext_resource type="Texture2D" uid="uid://c0e52fym2nvl6" path="res://textures/mainCharParts/SideBody.png" id="2_3xek8"]
 [ext_resource type="Texture2D" uid="uid://cv2xcwx6f8bas" path="res://textures/other/FleshyBar.png" id="2_nvwrx"]
+[ext_resource type="Texture2D" uid="uid://chsc727sytm7l" path="res://textures/pizzaManParts/body.png" id="3_boi5a"]
 
 [sub_resource type="GDScript" id="GDScript_t4wlr"]
 script/source = "extends CanvasLayer
@@ -22,11 +24,11 @@ func _unhandled_input(event: InputEvent) -> void:
 "
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5owxq"]
-content_margin_top = 20.0
+content_margin_top = 10.0
 content_margin_bottom = 20.0
 texture = ExtResource("2_0rq8m")
 axis_stretch_horizontal = 1
-region_rect = Rect2(15, 15, 30, 30)
+region_rect = Rect2(15, 6.94511, 30, 48.8889)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hd01r"]
 texture = ExtResource("2_nvwrx")
@@ -88,6 +90,8 @@ text = "Master Volume
 [node name="slider_vol_master" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("2_3xek8")
+theme_override_icons/grabber_highlight = ExtResource("3_boi5a")
 theme_override_styles/slider = SubResource("StyleBoxTexture_5owxq")
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hd01r")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_hd01r")
@@ -107,6 +111,8 @@ text = "Sound Volume
 [node name="slider_vol_master2" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("2_3xek8")
+theme_override_icons/grabber_highlight = ExtResource("3_boi5a")
 theme_override_styles/slider = SubResource("StyleBoxTexture_5owxq")
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hd01r")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_hd01r")
@@ -126,6 +132,8 @@ text = "Music Volume
 [node name="slider_vol_master3" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("2_3xek8")
+theme_override_icons/grabber_highlight = ExtResource("3_boi5a")
 theme_override_styles/slider = SubResource("StyleBoxTexture_5owxq")
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hd01r")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_hd01r")
