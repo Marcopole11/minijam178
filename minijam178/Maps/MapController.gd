@@ -9,6 +9,9 @@ extends Node2D
 @onready var pointer_ui: CanvasLayer = $PointerUi
 @onready var explosion: GPUParticles2D = $explosion
 
+func _ready():
+	MusicPlayer.stream = load("res://Sounds/chill-drum-loop-6887.mp3")
+	MusicPlayer.play()
 
 func _on_kidney_organ_failure() -> void:
 	lose_animation(kidney)
@@ -33,6 +36,7 @@ func lose_animation(node_to_follow):
 	var tween = create_tween()
 	tween.tween_property(failure_camera, "position", node_to_follow.position, 2).from_current()
 	tween.tween_interval(0.2)
+	tween.tween_callback($AudioStreamPlayer2D.play)
 	tween.tween_property(explosion, "emitting", true, 0)
 	
 

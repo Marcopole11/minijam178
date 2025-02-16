@@ -11,12 +11,14 @@ signal organ_failure
 @export_group("rage") #all var related to the rage of the monster
 @export var max_rage:float = 100
 @export var rage_change:float = 1
-@export var rage:float = 0
+@export var rage_decrease_rate:  float = 10
 @export var spawnrage:int = 100
 
 @onready var spawner: Node2D = $Spawner
 @onready var spawncd: Timer = $Spawncd
 @onready var sprite: Sprite2D = $Icon
+
+var rage:float = 0
 
 func _ready() -> void:
 	spawncd.wait_time = spawncd.wait_time / GlobalVariables.dificulty
@@ -28,7 +30,7 @@ func _process(delta: float) -> void:
 		if rage == max_rage:
 			organ_failure.emit()
 	elif rage > 0:
-		rage -= rage_change * delta * 10
+		rage -= rage_change * delta * rage_decrease_rate
 		rage = max(rage, 0)
 	if rage >= 100 and GlobalVariables.totalrage < 1:
 		GlobalVariables.totalrage += 0.0005

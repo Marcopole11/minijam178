@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxfe26kiikm5m"]
+
+[ext_resource type="Script" path="res://Scripts/win_countdown_layer.gd" id="1_3mle2"]
+[ext_resource type="FontFile" uid="uid://d2r7xvchxckeu" path="res://Fonts/PixelGame-R9AZe.otf" id="2_r6tjk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x8wcg"]
+font = ExtResource("2_r6tjk")
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l8pnh"]
+font = ExtResource("2_r6tjk")
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WinCountdownLayer" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_3mle2")
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 180.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 34.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+show_percentage = false
+
+[node name="CenterContainer" type="CenterContainer" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ProgressBar/CenterContainer"]
+layout_mode = 2
+
+[node name="TimeRemainingLabel" type="Label" parent="ProgressBar/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Time Remaining: "
+label_settings = SubResource("LabelSettings_x8wcg")
+
+[node name="TimeLabel" type="Label" parent="ProgressBar/CenterContainer/HBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_l8pnh")
+
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]

@@ -11,13 +11,17 @@ signal organ_failure
 @export var rage_change:float = 4
 @export var rage_decrease: float = 10
 @export var rage_on_failure:float = 20
-var rage:float = 0
+@export_group("questions param")
+@export var min_time_popup_question = 10
+@export var max_time_popup_question = 20
 
 @onready var brain_timer: Timer = $brainTimer
 @onready var question_spawner: Node2D = $QuestionSpawner
 @onready var thought_spawner: Node2D = $ThoughtSpawner
 @onready var sprite:Sprite2D = $Icon
+
 var spawnrange:int = 60
+var rage:float = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,7 +38,7 @@ func _process(delta: float) -> void:
 	
 func spawnquestion():
 	var question = QUESTIONTHOUGHTS.instantiate()
-	question.solved.connect(brain_timer.start.bind(randf() * 10 + 10))
+	question.solved.connect(brain_timer.start.bind(randf_range(min_time_popup_question, max_time_popup_question)))
 	question.wrong.connect(func (): rage += rage_on_failure)
 	question.position = Vector2(0,0)
 	question_spawner.add_child(question)

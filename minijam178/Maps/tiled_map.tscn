@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dwnjck57w0qnr"]
+[gd_scene load_steps=24 format=4 uid="uid://cl50ksp08j84b"]
 
 [ext_resource type="Texture2D" uid="uid://b3n1ykbsorjek" path="res://textures/tiles/tilemapFlesh.png" id="1_gyp6d"]
 [ext_resource type="Script" path="res://Maps/MapController.gd" id="1_sri8s"]
@@ -14,30 +14,50 @@
 [ext_resource type="PackedScene" uid="uid://be2hoy8bwscw7" path="res://pointer_ui.tscn" id="9_305mt"]
 [ext_resource type="Texture2D" uid="uid://c4yoswwl4x1e6" path="res://textures/props/PizzaSpot.png" id="11_cp3ti"]
 [ext_resource type="PackedScene" uid="uid://c3evs7co2tpf1" path="res://Scenes/explosion.tscn" id="13_7iqic"]
+[ext_resource type="AudioStream" uid="uid://c2j3fh6bqbq2r" path="res://Sounds/167219__qubodup__plastic-bag-explosion.wav" id="15_snwyl"]
+[ext_resource type="PackedScene" uid="uid://bxfe26kiikm5m" path="res://Scenes/win_countdown_layer.tscn" id="16_hdhtm"]
+[ext_resource type="PackedScene" uid="uid://ce6b3sigusthk" path="res://Scenes/pause_menu.tscn" id="17_oflfo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmncv"]
 texture = ExtResource("2_2a603")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, 1.5, 32, 1.5, 32, 32)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, 1.5, 32, 1.5, 32, 32)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, 1.5, 32, 1.5, 32, 32)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, 1.5, 32, 1.5, 32, 32)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, 4, 32, 4.5, 32, 32)
 1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, 4, 32, 4.5, 32, 32)
 2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, 4, 32, 4.5, 32, 32)
 3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, 32, 32, -32, 32, -32, -32)
 
 [sub_resource type="TileSet" id="TileSet_41i4n"]
 tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_jmncv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ube26"]
@@ -176,6 +196,8 @@ process_mode = 1
 position = Vector2(901, 116)
 pizzaguy = NodePath("../Pizzaguy")
 
+[node name="WinCountdownLayer" parent="Player" instance=ExtResource("16_hdhtm")]
+
 [node name="Kidney" parent="." instance=ExtResource("3_m2wav")]
 process_mode = 1
 z_index = -1
@@ -188,7 +210,9 @@ position = Vector2(485, -293)
 [node name="Heart" parent="." instance=ExtResource("5_cn7q7")]
 process_mode = 1
 position = Vector2(1433, 251)
-need_decrease = 2.0
+max_need = 50.0
+need_increase = 8.0
+need_decrease = 1.0
 
 [node name="Stomach" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_86eeh")]
 process_mode = 1
@@ -196,7 +220,6 @@ position = Vector2(-441, 282)
 scale = Vector2(-1, 1)
 player = NodePath("../Player")
 max_need = 60.0
-need_increase = 60.0
 need_decrease = 2.0
 
 [node name="phone" parent="." instance=ExtResource("7_xirk8")]
@@ -210,6 +233,7 @@ phone = NodePath("../phone")
 
 [node name="PizzaGuyStation" type="Sprite2D" parent="Pizzaguy"]
 process_mode = 1
+show_behind_parent = true
 position = Vector2(1, -49)
 texture = ExtResource("11_cp3ti")
 
@@ -228,6 +252,12 @@ enabled = false
 [node name="explosion" parent="." instance=ExtResource("13_7iqic")]
 emitting = false
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_snwyl")
+bus = &"Sound"
+
+[node name="pause_menu" parent="." instance=ExtResource("17_oflfo")]
 
 [connection signal="organ_failure" from="Kidney" to="." method="_on_kidney_organ_failure"]
 [connection signal="organ_failure" from="Brain" to="." method="_on_brain_organ_failure"]
