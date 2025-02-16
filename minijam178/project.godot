@@ -25,7 +25,7 @@ MusicPlayer="res://Scenes/music_player.tscn"
 
 window/size/mode=2
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="res://textures/props/PizzaIcon.png"
+mouse_cursor/custom_image="res://textures/other/cursorPonter.png"
 
 [dotnet]
 
