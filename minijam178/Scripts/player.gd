@@ -28,7 +28,7 @@ func _physics_process(_delta):
 	if(direction.length_squared() > 1):
 		direction = direction.normalized()
 
-	if not direction.is_zero_approx() and not attacking:
+	if not direction.is_zero_approx():
 		if abs(direction.x) < abs(direction.y):
 			orientation = Vector2.DOWN if direction.y > 0 else Vector2.UP
 		else:

@@ -3247,7 +3247,6 @@ transitions = ["Walk", "Attack", SubResource("AnimationNodeStateMachineTransitio
 graph_offset = Vector2(-389, 21)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(385, 321)
 motion_mode = 1
 script = ExtResource("1_g4ryt")
 SPEED = 700.0
@@ -3291,6 +3290,7 @@ shape = SubResource("RectangleShape2D_5puha")
 debug_color = Color(0.768831, 0.41223, 0.460352, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 
 [node name="AtkAnims" type="AnimationPlayer" parent="."]
 libraries = {

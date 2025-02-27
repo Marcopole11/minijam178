@@ -7,12 +7,12 @@ signal organ_failure
 @export var max_need:float = 100
 @export var need_increase:float = 10
 @export var need_decrease:float = 1
-@export var need:float = 0
 
 @export var sprite: Node2D
 @export var heartAnim: AnimationTree
 
 var ouch = -1
+var need:float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://i42moxoncfea"]
+[gd_scene load_steps=10 format=3 uid="uid://i42moxoncfea"]
 
 [ext_resource type="Script" path="res://Scripts/pizzaguy.gd" id="1_v7kgq"]
 [ext_resource type="Texture2D" uid="uid://chsc727sytm7l" path="res://textures/pizzaManParts/body.png" id="2_4edjx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bsn785ar6bjn" path="res://textures/mainCharParts/LeftLeg.png" id="5_0feo7"]
 [ext_resource type="Texture2D" uid="uid://03cg5gfo0vo0" path="res://textures/pizzaManParts/LeftHead.png" id="6_1snku"]
 [ext_resource type="Texture2D" uid="uid://cb5y258exavko" path="res://textures/pizzaManParts/LeftHurt.png" id="7_yf5sw"]
+[ext_resource type="Texture2D" uid="uid://c4yoswwl4x1e6" path="res://textures/props/PizzaSpot.png" id="9_dt5wo"]
 
 [node name="Pizzaguy" type="StaticBody2D"]
 script = ExtResource("1_v7kgq")
@@ -86,5 +87,11 @@ polygon = PackedVector2Array(0.647753, -8.7373, 2.59101, -6.9239, 2.59101, -5.76
 stream = ExtResource("3_qvysn")
 volume_db = -6.688
 bus = &"Sound"
+
+[node name="PizzaGuyStation" type="Sprite2D" parent="."]
+process_mode = 1
+show_behind_parent = true
+position = Vector2(1, -49)
+texture = ExtResource("9_dt5wo")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

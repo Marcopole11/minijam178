@@ -18,7 +18,7 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_doumi"]
 size = Vector2(112.733, 108.773)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Phone" type="StaticBody2D"]
 script = ExtResource("1_nvc3l")
 
 [node name="Icon" type="Sprite2D" parent="."]
